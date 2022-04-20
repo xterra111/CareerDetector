@@ -2,7 +2,12 @@ import React from 'react'
 
 const GoogleMap = () => {
   return (
-    <div>GoogleMap</div>
+    <div>
+      
+      GoogleMap
+      Hi Liam!
+
+    </div>
   )
 }
 

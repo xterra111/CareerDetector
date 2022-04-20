@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 
 
@@ -11,7 +11,8 @@ const Register = (props)=>{
 
     // Using a single state object to hold all the data
     const [user, setUser] = useState({
-        username:"",
+        firstName:"",
+        lastName:"",
         email:"",
         password:"",
         confirmPassword:"",
@@ -32,8 +33,8 @@ const Register = (props)=>{
         axios.post("http://localhost:8000/api/users/register",
         user,
         {
-            // this is how wer creditials on the front-end.
-            withCreditials: true
+            // this is how wer credentials on the front-end.
+            withCredentials: true
         })
         .then((res)=>{
             console.log(res.data);
@@ -57,101 +58,91 @@ const Register = (props)=>{
 
 
     return (
-        <div style={{display:"flex", margin:"auto", fontFamily:"monospace"}}>
+        <div className="display">
             <h1>Register</h1>
             {confirmReg ? <h4 style={{ color: "red" }}>{confirmReg}</h4> 
             : null}
             <div className="form">
-            <form className="form-control" onSubmit={register}>
-                {/* <div>
-                    <label className="form-label">Username</label>
-                    {errors.username ? (
-                        <span className="error-text">
-                            {errors.username.message}
-                        </span>
-                    ) : null}
-                    <input
-                        type="text"
-                        name="username"
-                        value={user.username}
-                        //long hand notation
-                        onChange={(e) => handleChange(e)}
-                    />
-                </div> */}
-                <div>
-                    <label className="form-label">First Name</label>
-                    {errors.firstName ? (
-                        <span className="error-text">
-                            {errors.firstName.message}
-                        </span>
-                    ) : null}
-                    <input
-                        type="text"
-                        name="firstName"
-                        value={user.firstName}
-                        //long hand notation
-                        onChange={(e) => handleChange(e)}
-                    />
-                </div>
-                <div>
-                    <label className="form-label">Last Name</label>
-                    {errors.lastName ? (
-                        <span className="error-text">
-                            {errors.lastName.message}
-                        </span>
-                    ) : null}
-                    <input
-                        type="text"
-                        name="lastName"
-                        value={user.lastName}
-                        //long hand notation
-                        onChange={(e) => handleChange(e)}
-                    />
-                </div>
-                <div>
-                    <label className="form-label">Email</label>
-                    {errors.email ? (
-                        <span className="error-text">{errors.email.message}</span>
-                    ) : null}
-                    <input
-                        type="email"
-                        name="email"
-                        value={user.email}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label className="form-label">Password</label>
-                    {errors.password ? (
-                        <span className="error-text">
-                            {errors.password.message}
-                        </span>
-                    ) : null}
-                    <input
-                        type="password"
-                        name="password"
-                        value={user.password}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label>Confirm Password</label>
-                    {errors.confirmPassword ? (
-                        <span className="error-text">
-                            {errors.confirmPassword.message}
-                        </span>
-                    ) : null}
-                    <input
-                        type="password"
-                        name="confirmPassword"
-                        value={user.confirmPassword}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="center">
-                    <button>Register Me</button>
-                </div>
-            </form>
+                <form className="form-control" onSubmit={register}>
+                    <div>
+                        <label className="form-label">First Name</label>
+                        <br/>
+                        {   errors.firstName ? (
+                            <span className="error-text">
+                                {errors.firstName.message}
+                            </span>
+                        ) : null}
+                        <input
+                            type="text"
+                            name="firstName"
+                            value={user.firstName}
+                            //long hand notation
+                            onChange={(e) => handleChange(e)}
+                        />
+                    </div>
+                    <div>
+                        <label className="form-label">Last Name</label>
+                        <br/>
+                        {errors.lastName ? (
+                            <span className="error-text">
+                                {errors.lastName.message}
+                            </span>
+                        ) : null}
+                        <input
+                            type="text"
+                            name="lastName"
+                            value={user.lastName}
+                            //long hand notation
+                            onChange={(e) => handleChange(e)}
+                        />
+                    </div>
+                    <div>
+                        <label className="form-label">Email</label>
+                        <br/>
+                        {errors.email ? (
+                            <span className="error-text">{errors.email.message}</span>
+                        ) : null}
+                        <input
+                            type="email"
+                            name="email"
+                            value={user.email}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div>
+                        <label className="form-label">Password</label>
+                        <br/>
+                        {errors.password ? (
+                            <span className="error-text">
+                                {errors.password.message}
+                            </span>
+                        ) : null}
+                        <input
+                            type="password"
+                            name="password"
+                            value={user.password}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div>
+                        <label>Confirm Password</label>
+                        <br/>
+                        {errors.confirmPassword ? (
+                            <span className="error-text">
+                                {errors.confirmPassword.message}
+                            </span>
+                        ) : null}
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            value={user.confirmPassword}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="center">
+                        <button>Register Me</button>
+                    </div>
+                </form>
             </div>
         </div>
     )

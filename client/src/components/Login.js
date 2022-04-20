@@ -35,13 +35,14 @@ const Login = (props) => {
     };
 
     return (
-        <div style={{display:"flex", margin:"auto", fontFamily:"monospace"}}>
+        <div className="display">
             <h1>Login</h1>
             <p className="error-text">{errorMessage ? errorMessage : ""}</p>
             <div className="form">
             <form  className= "form-control" onSubmit={login}>
                 <div>
                     <label className="form-label">Email</label>
+                    <br/>
                     <input
                         type="text"
                         name="email"
@@ -51,6 +52,7 @@ const Login = (props) => {
                 </div>
                 <div>
                     <label  className="form-label">Password</label>
+                    <br/>
                     <input
                         type="password"
                         name="password"

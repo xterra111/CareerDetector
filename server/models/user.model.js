@@ -19,7 +19,8 @@ const UserSchema = new mongoose.Schema({
     email: {
         type: String,
         required: [true, "Email address is required"],
-        unique: true,
+        unique: [true, "Email must be unique"],
+        match: /.+\@.+\..+/,
         validate: {
             validator: () => Promise.resolve(false),
             message: 'Email validation failed'

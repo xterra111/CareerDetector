@@ -1,13 +1,9 @@
-
-/* 
-,---.                         |        ,--. o          |              
-|  _.,---.,---.,---.,---.,---.|        |   |.,---.,---.|    ,---.,   .
-|   ||---'|   ||---'|    ,---||        |   ||`---.|   ||    ,---||   |
-`---'`---'`   '`---'`    `---^`---'    `--' ``---'|---'`---'`---^`---|
-                                                  |              `---'
- */
-
-/* 
+/*
+-.--..---..   ..---..--.     .    .    
+:    |    |\  ||    |   )   / \   |    
+| --.|--- | \ ||--- |--'   /___\  |    
+:   ||    |  \||    |  \  /     \ |    
+`--''---''   ''---''   `'       `'---'
   Font family flex 
   https://blog.greenroots.info/3-quick-ways-to-add-fonts-to-your-react-app 
   Choose fonts from https://fonts.google.com/
@@ -17,3 +13,410 @@
   font-family: 'Helvetica', cursive;
   padding: 20px;
 }
+
+.blurred-box{
+	position:inherit;
+	background: inherit;
+	box-shadow: inset 0 0 0 200px rgba(255,255,255,0.30);
+	border-radius: 2px;
+	overflow: hidden;
+}
+
+.header-pane{
+	color: #004080;
+	background-color: inherit;
+	border-radius: 10%;
+	border-radius: 2px;
+}
+
+
+.blurred-box-form{
+	position:inherit;
+	background: inherit;
+	box-shadow: inset 0 0 0 500px rgba(255,255,255,0.50);
+	border-radius: 2px;
+	overflow: hidden;
+}
+
+
+
+/*                          
+.    --.--.   ..   . .-. 
+|      |  |\  ||  / (   )
+|      |  | \ ||-'   `-. 
+|      |  |  \||  \ (   )
+'---'--'--'   ''   ` `-' 
+                      
+ */
+
+.box-link-style-general { background-color: #A1A6C2;}
+
+	
+	.btn-link-style-general {
+    color: #304CC0;
+    transition: all 0.5s;
+    position: relative; 
+	}
+	.btn-link-style-general span {
+    z-index: 2; 
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+	}
+	.btn-link-style-general::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid rgba(48, 76, 192,0.2);
+    background-color: rgba(161, 166, 194,0.1);
+	}
+	.btn-link-style-general::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid rgba(48, 76, 192,0.2);
+    background-color: rgba(161, 166, 194,0.1);
+	}
+	.btn-link-style-general:hover::before {
+    transform: rotate(-180deg);
+    background-color: rgba(161, 166, 194,0);
+	}
+	.btn-link-style-general:hover::after {
+    transform: rotate(180deg);
+    background-color: rgba(161, 166, 194,0);
+	}
+
+
+
+/*                                                              
+    .     .--..---.--.-- .--. .   .     .    --.--.   ..   .
+____/ \   :      |    |  :    :|\  |     |      |  |\  ||  / 
+  /___\  |      |    |  |    || \ |     |      |  | \ ||-'  
+_/     \ :      |    |  :    ;|  \|     |      |  |  \||  \ 
+'       ` `--'  '  --'-- `--' '   '     '---'--'--'   ''   `
+*/
+
+    
+.box-link-style-action { background-color: #FFDFBF; }
+            
+.btn-link-style-action {
+  color: #EB6123;
+  transition: all 0.5s;
+  position: relative;
+}
+.btn-link-style-action::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: (235, 97, 35,0.1);
+  transition: all 0.3s;
+}
+.btn-link-style-action:hover::before {
+  opacity: 0 ;
+  transform: scale(0.5,0.5);
+}
+.btn-link-style-action::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 179, 71,0.8);
+  transform: scale(1.2,1.2);
+}
+.btn-link-style-action:hover::after {
+  opacity: 0.8;
+  transform: scale(1,1);
+}
+
+
+
+/*                                                       
+.--. .---..    .---..---..---.     .    --.--.   ..   .
+|   :|    |    |      |  |         |      |  |\  ||  / 
+|   ||--- |    |---   |  |---      |      |  | \ ||-'  
+|   ;|    |    |      |  |         |      |  |  \||  \ 
+'--' '---''---''---'  '  '---'     '---'--'--'   ''   `
+	https://webdeasy.de/en/top-css-buttons-en/
+
+*/
+
+.box-link-style-delete { background-color: #F4B6B2;}
+
+	
+	.btn-link-style-delete {
+    color: #8B0000;
+    transition: all 0.5s;
+    position: relative; 
+	}
+	.btn-link-style-delete span {
+    z-index: 2; 
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+	}
+	.btn-link-style-delete::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid rgba(178,34,34,0.2);
+    background-color: rgba(244, 182, 178,0.1);
+	}
+	.btn-link-style-delete::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid rgba(178,34,34,0.2);
+    background-color: rgba(244, 182, 178,0.1);
+	}
+	.btn-link-style-delete:hover::before {
+    transform: rotate(-45deg);
+    background-color: rgba(178,34,34,0);
+	}
+	.btn-link-style-delete:hover::after {
+    transform: rotate(45deg);
+    background-color: rgba(178,34,34,0);
+	}
+		
+/*                                                         
+_.-. .   ..--. .    .--.--.---.     .    --.--.   ..   .
+(   )|   ||   )|\  /|  |    |       |      |  |\  ||  / 
+_`-. |   ||--: | \/ |  |    |       |      |  | \ ||-'  
+(   ):   ;|   )|    |  |    |       |      |  |  \||  \ 
+_`-'  `-' '--' '    '--'--  '       '---'--'--'   ''   `
+                                                        
+*/
+.box-link-style-submit { 
+	background-color: #2D4F85; 
+	border: 1px solid rgba(45, 79, 133,0.2);
+	}
+            
+.btn-link-style-submit {
+  color: #FFF5EE;
+  transition: all 0.5s;
+  position: relative;
+}
+.btn-link-style-submit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: (59, 97, 150,0.1);
+  transition: all 0.3s;
+}
+.btn-link-style-submit:hover::before {
+  opacity: 0 ;
+  transform: scale(0.5,0.5);
+}
+.btn-link-style-submit::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border: 1px solid rgba(179, 66, 66,0.8);
+  transform: scale(1.2,1.2);
+}
+.btn-link-style-submit:hover::after {
+  opacity: 0.8;
+  transform: scale(1,1);
+}
+
+
+
+/*
+.---.--.--.   ..---..--.      .   ..---.    .    .--. --.--.   . .--.
+|      |   \ / |    |   :     |   ||       / \   |   :  |  |\  |:    
+|---   |    /  |--- |   |     |---||---   /___\  |   |  |  | \ || --.
+|      |   / \ |    |   ;     |   ||     /     \ |   ;  |  |  \|:   |
+'    --'--'   ''---''--'      '   ''---''       `'--' --'--'   ' `--'
+w3 schools guidance: https://www.w3schools.com/howto/howto_js_sticky_header.asp
+*/
+
+.top-container {
+	background: inherit;
+	padding: 25px;
+	text-align: center;
+	position:inherit;
+	box-shadow: inset 0 0 0 200px rgba(255,255,255,0.10);
+	border-radius: 2px;
+	overflow: hidden;
+}
+
+.header {
+	padding: 10px 16px;
+	background: inherit;
+	box-shadow: inset 0 0 0 200px rgba(255,255,255,0.10);
+	color: black;
+	position:inherit;
+	border-radius: 2px;
+	overflow: hidden;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
+
+/*
+.--.     .     .--..   . .--..--.  .--. .   ..   ..--. 
+|   )   / \   :    |  / :    |   ):    :|   ||\  ||   :
+|--:   /___\  |    |-'  | --.|--' |    ||   || \ ||   |
+|   ) /     \ :    |  \ :   ||  \ :    ;:   ;|  \||   ;
+'--' '       ` `--''   ` `--''   ` `--'  `-' '   ''--'  
+https://freefrontend.com/css-background-patterns/
+https://codepen.io/ThePixelPixie/pen/dXwEqp
+*/
+
+
+
+body {
+	font-family: Helvetica, sans-serif;
+	background: radial-gradient(1.5em 6.28571em at 1.95em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(1.5em 6.28571em at -0.45em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 1.5em 5.5em, radial-gradient(2.3em 4.57143em at 2.99em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(2.3em 4.57143em at -0.69em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0) 55%) 2.3em 4em, radial-gradient(3.5em 6.28571em at 4.55em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(3.5em 6.28571em at -1.05em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 3.5em 5.5em, radial-gradient(#ADD8E6, #eceae7);
+	background-color: #000080;
+	background-size: 1.5em 11em, 1.5em 11em, 2.3em 8em, 2.3em 8em, 3.5em 11em, 3.5em 11em, 100% 100%;
+	background-repeat: repeat;
+}
+
+
+
+
+
+
+/*
+.---. .--. .--. .    .
+|    :    :|   )|\  /|
+|--- |    ||--' | \/ |
+|    :    ;|  \ |    |
+'     `--' '   `'    ' 
+HTML/CSS Forms
+https://www.sliderrevolution.com/resources/css-forms/
+*/
+
+
+
+.form-sizing-single{
+	text-align: center;
+}
+
+.form-sizing-double{
+  padding: 10px 16px;
+	width: 600px;
+	text-align: center;
+  background-color: inherit;
+}
+
+/* 
+--.--.    .    .     .--..---. .-. 
+  |  |\  /|   / \   :    |    (   )
+  |  | \/ |  /___\  | --.|---  `-. 
+  |  |    | /     \ :   ||    (   )
+--'--'    ''       ` `--''---' `-' 
+https://www.w3schools.com/css/css3_images.asp
+
+*/
+
+div.polaroid {
+  width: 30%;
+  background-color: white;
+  opacity: 0.8;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 10px;
+}
+
+div.polaroid-side-display {
+  width: 50%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.polaroid-sizing{
+	width: 70%;
+}
+
+.polaroid-sizing-big{
+	width: 50%;
+}
+
+
+.bottomright {
+  position: absolute;
+  bottom: 8px;
+  color: white;
+  font-size: 18px;
+}
+
+
+/* 
+  .--.    .    .--.  .--. .   . .-. .---..    
+:       / \   |   ):    :|   |(   )|    |    
+|      /___\  |--' |    ||   | `-. |--- |    
+:     /     \ |  \ :    ;:   ;(   )|    |    
+`--''       `'   ` `--'  `-'  `-' '---''---'
+
+###### W3 Schools Boostrap Carousel####
+	https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_carousel2&stacked=h
+ */
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 60%;
+    margin: auto;
+}
+

@@ -1,51 +1,26 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const AddJob = () => {
-	// const [jobTitle, setJobTitle] = useState("");
-	// const [company, setCompany] = useState("");
-	// const [salary, setSalary] = useState();
-
-	// const [jobType, setJobType] = useState(""); 
-	// 	// DROPDOWN: Unknown, Remote, On-Site, Hybrid
-
-	// const [location, setLocation] = useState("");
-
-	// const [followUp, setfollowUp] = useState();
-	// 	//Date Example: https://gist.github.com/mohanramphp/af4f0267f5b1c3c0e726e18019eb2a0b
-
-
-	// const [notes, setNotes] = useState("");
-
-	// const [stage, setStage] = useState("");
-	// // enum: [
-	// // 	"Applied",
-	// // 	"Pending Company Response",
-	// // 	"Technical Interview",
-	// // 	"Pending Company Offer",
-	// // 	"Pending My Decision",
-	// // 	"Other: See Additional Notes",
-	// // ],
-
-	// const [skills, setSkills] = useState("");
-	// const [benefits, setBenefits] = useState("");
-
-	// //is this needed here?
-	// const [createdBy, setCreatedBy] = useState(""); 
-	
-	// const navigate = useNavigate();
-
-
-
-	return (
-		<div>
-
-			
-			
-		</div>
-	)
+	const [jobTitle, setJobTitle] = useState("");
+	const [company, setCompany] = useState("");
+	const [salary, setSalary] = useState();
+	const [jobType, setJobType] = useState(""); 
+		// DROPDOWN: Unknown, Remote, On-Site, Hybrid
+	const [location, setLocation] = useState("");
+	const [followUp, setFollowUp] = useState();
+		//Date Example: https://gist.github.com/mohanramphp/af4f0267f5b1c3c0e726e18019eb2a0b
+	const [notes, setNotes] = useState("");
+	const [stage, setStage] = useState(""); // drop down
+	const [skills, setSkills] = useState("");
+	const [benefits, setBenefits] = useState("");
+	const [createdBy, setCreatedBy] = useState(""); 
+		//is this needed here?
+	const navigate = useNavigate();
+    const [errors, setErrors] = useState({});
 
 // Job Title: Text
 // Company: Text
@@ -66,20 +41,35 @@ const AddJob = () => {
 // Location: Text
 // Additional Notes: Text Area
 
-
-
-
-
-
-
-
-
-
+	const onSubmitHandler = (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:8000/api/jobs', {
+            jobTitle,
+            company,
+            salary,
+            jobType,
+            location,
+			followUp,
+			notes,
+			stage,
+			skills,
+			benefits,
+			createdBy
+        })
+            .then((res) => {
+                console.log(res);
+                console.log(res.data);
+                navigate('/');
+            })
+            .catch((err) => {
+                console.log(err);
+                setErrors(err.response.data.errors)
+            })
+    };
 
 
 	return (
 		<div>
-			addjob
 			{/* ...
 .   .    .    .       ..--.     .    .--. 
 |\  |   / \    \     / |   )   / \   |   )
@@ -89,8 +79,8 @@ const AddJob = () => {
 			<div class="blurred-box text-center " id="myHeader">
 				<div class="p-1 blurred-box d-flex justify-content-between align-items-center">
 					<p class="navbar-brand">
-						{/* <strong>Add Job Pane for ${userLogin.firstName}</strong> */}
-						<strong>Add Job Pane for </strong>
+						{/* <strong>Add Job for ${userLogin.firstName}</strong> */}
+						<strong>Add Job for </strong>
 					</p>
 					<p class="navbar-brand">
 						<em>
@@ -101,8 +91,8 @@ const AddJob = () => {
 
 				<div class="mb-3 text-center">
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">
-						<a class="navbar-brand" href="/pane/welcome">
-							PANE
+						<a class="navbar-brand" href="/career-detector/welcome">
+							CAREER DETECTOR
 						</a>
 						<button
 							class="navbar-toggler"
@@ -117,13 +107,13 @@ const AddJob = () => {
 						<div class="collapse navbar-collapse" id="navbarNav">
 							<ul class="navbar-nav">
 								<li class="m-1 nav-item">
-									<a class="nav-link" href="/pane/dashboard">
+									<a class="nav-link" href="/career-detector/dashboard">
 										DASHBOARD
 									</a>
 								</li>
 								<li class="m-1 nav-item">
-									<a class="nav-link disabled" href="/pane/addjob">
-										ADD JOB PANE
+									<a class="nav-link disabled" href="/career-detector/add-job">
+										ADD JOB
 									</a>
 								</li>
 								<li class="m-1 nav-item">
@@ -137,38 +127,124 @@ const AddJob = () => {
 				</div>
 			</div>
 			{/* <!-- 
-		.--. .   . .--. .---. .--. 
-		|   )|   |:    :  |  :    :
-		|--' |---||    |  |  |    |
-		|    |   |:    ;  |  :    ;
-		'    '   ' `--'   '   `--' 
-		                        
+.    .    .    .--. 
+|\  /|   / \   |   )
+| \/ |  /___\  |--' 
+|    | /     \ |    
+'    ''       `'   
 		 --> */}
 			<div class="d-flex justify-content-center align-items-center polaroid-side-display">
 				<div class="text-center ">
-					<img
+					{/* <img
 						src="../views/img/2011-austria-tunnel-of-windows.jpg"
 						alt="austria-tunnel-of-windows"
 						class="polaroid-sizing"
-					/>
+					/> */}
 					<div class="container">
-						<p>Austria 2011 - L.Chen</p>
+						{/* <p>Austria 2011 - L.Chen</p> */}
 					</div>
 				</div>
 			</div>
-			{/* <!--     
+
+			{/* <!--
 		.---. .--. .--. .    .
 		|    :    :|   )|\  /|
 		|--- |    ||--' | \/ |
 		|    :    ;|  \ |    |
-		'     `--' '   `'    '             
+		'     `--' '   `'    '
 		 --> */}
-			{/* <form:form */}
 			<form
-				class="polaroid-sizing blurred-box-form"
-				action="/pane/create"
-				method="post"
-				modelAttribute="addJob">
+				className="polaroid-sizing blurred-box-form"
+				onSubmit={onSubmitHandler}
+			>				
+				<div className="d-flex justify-content-center">
+					{/* <input type="hidden" value="${userLogin.id}" path="user"/> */}
+					<p className="form-sizing-double card-body">
+						<label> Job Title </label>
+						<input
+							type="text"
+							onChange={(e) => {
+								setJobTitle(e.target.value)
+							}} />
+						{
+							errors.jobTitle ?
+								<p>{errors.jobTitle.message}</p> :
+								null
+						}
+					</p>
+					<p className="form-sizing-double form-group card-body">
+						<label> Company </label>
+						<input
+							type="text"
+							onChange={(e) => {
+								setCompany(e.target.value)
+							}} />
+						{
+							errors.company ?
+								<p>{errors.company.message}</p> :
+								null
+						}
+					</p>
+					<p className="form-sizing-double form-group card-body">
+						<label> Salary </label>
+						<input
+							type="text"
+							onChange={(e) => {
+								setSalary(e.target.value)
+							}} />
+						{
+							errors.salary ?
+								<p>{errors.salary.message}</p> :
+								null
+						}
+					</p>					
+				</div>
+				<div className="d-flex justify-content-center">
+					<p className="form-sizing-double form-group card-body">
+						<label> Job Type </label>
+						<input
+							type="text"
+							onChange={(e) => {
+								setJobType(e.target.value)
+							}} />
+						{
+							errors.jobType ?
+								<p>{errors.jobType.message}</p> :
+								null
+						}
+					</p>
+					<p className="form-sizing-double form-group card-body">
+						<label> Location </label>
+						<input
+							type="text"
+							onChange={(e) => {
+								setLocation(e.target.value)
+							}} />
+						{
+							errors.location ?
+								<p>{errors.location.message}</p> :
+								null
+						}
+					</p>
+					<p className="form-sizing-double form-group card-body">
+						<label> Next Follow Up </label>
+						<input
+							type="text"
+							onChange={(e) => {
+								setFollowUp(e.target.value)
+							}} />
+						{
+							errors.followUp ?
+								<p>{errors.followUp.message}</p> :
+								null
+						}
+					</p>					
+				</div>
+
+			</form>
+
+
+			<form>
 				<div class="d-flex justify-content-center">
 					{/* <!-- userId --> */}
 					{/* <form:input type="hidden" value="${userLogin.id}" path="user" /> */}

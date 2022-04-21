@@ -11,7 +11,7 @@ const JobSchema = new mongoose.Schema(
 			maxlength: [30, "Job title cannot be more than 30 characters"],
 		},
 		// CompanyName validation 1-50 characters, text
-		name: {
+		company: {
 			type: String,
 			required: [true, "Company name is required"],
 			maxlength: [50, "Company name cannot be more than 50 characters"],
@@ -25,7 +25,7 @@ const JobSchema = new mongoose.Schema(
 		// Remote,OnSite, Hybrid
 		jobType: {
 			type: String,
-			enum: ["Remote", "On Site", "Hybrid"],
+			enum: ["Remote", "On-Site", "Hybrid", "Unknown"],
 			required: [true, "Please specify job location."],
 		},
 		// location
@@ -52,14 +52,7 @@ const JobSchema = new mongoose.Schema(
 				"Other: See Additional Notes",
 			],
 		},
-		// Area of expertise
-		skills: {
-			type: String,
-		},
-		// notable benefits,
-		benefits: {
-			type: String,
-		},
+		// Person who has created the job posting
 		createdBy: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "User",

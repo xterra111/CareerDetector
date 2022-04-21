@@ -43,7 +43,7 @@ login:(req,res)=>{
                                     {
                                         id:userRecord._id,
                                         email:userRecord.email,
-                                        username: userRecord.username
+                                        firstName: userRecord.firstName
                                     },
                                     process.env.JWT_SECRET
                                 ),
@@ -53,7 +53,7 @@ login:(req,res)=>{
                                 }
                             ).json({
                                 message: "Login Suceessful",
-                                userLoggedIn: userRecord.username
+                                userLoggedIn: userRecord.firstName
                             });
                         }
                         else{

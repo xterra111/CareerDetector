@@ -26,7 +26,7 @@ const Login = (props) => {
             .then((res) => {
                 console.log(res, "res");
                 console.log(res.data, "is res data!");
-                navigate("/home");
+                navigate("/career-detector/dashboard");
             })
             .catch((err) => {
                 console.log(err.response.data);

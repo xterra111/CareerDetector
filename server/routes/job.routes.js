@@ -14,7 +14,7 @@ module.exports = (app) => {
 	app.get("/api/jobs/:id", JobController.findOneJob);
 
 	app.get(
-		"/api/jobsbyuser/:username",
+		"/api/jobsbyuser/:email",
 		authenticate,
 		JobController.findAllJobsByUser
 	);

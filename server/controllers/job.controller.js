@@ -5,7 +5,7 @@ const User = require("../models/user.model");
 module.exports = {
 	findAllJobs: (req, res) => {
 		Job.find()
-			.populate("createdBy", "username email")
+			.populate("createdBy", "email")
 			.then((allJobs) => {
 				console.log(allJobs);
 				res.json(allJobs);
@@ -98,13 +98,13 @@ module.exports = {
 			});
 	},
 	findAllJobsByUser: (req, res) => {
-		if (req.jwtpayload.username !== req.params.username) {
+		if (req.jwtpayload.firstName !== req.params.firstName) {
 			console.log("not the user");
 
-			User.findOne({ username: req.params.username })
+			User.findOne({ firstName: req.params.firstName })
 				.then((userNotLoggedIn) => {
 					Job.find({ createdBy: userNotLoggedIn._id })
-						.populate("createdBy", "username")
+						.populate("createdBy", "firstName")
 						.then((allJobsFromUser) => {
 							console.log(allJobsFromUser);
 							res.json(allJobsFromUser);
@@ -118,7 +118,7 @@ module.exports = {
 			console.log("current user");
 			console.log("req.jwtpayload.id:", req.jwtpayload.id);
 			Job.find({ createdBy: req.jwtpayload.id })
-				.populate("createdBy", "username")
+				.populate("createdBy", "firstName")
 				.then((allJobsFromLoggedInUser) => {
 					console.log(allJobsFromLoggedInUser);
 					res.json(allJobsFromLoggedInUser);

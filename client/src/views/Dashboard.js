@@ -21,8 +21,8 @@ const Dashboard = () => {
 				</div>
 				<div class="mb-3 text-center">
 					<nav class="navbar navbar-expand-lg navbar-light bg-light">
-						<a class="navbar-brand" href="/pane/welcome">
-							PANE
+						<a class="navbar-brand" href="/career-detector/welcome">
+							CAREER DETECTOR
 						</a>
 						<button
 							class="navbar-toggler"
@@ -37,13 +37,13 @@ const Dashboard = () => {
 						<div class="collapse navbar-collapse" id="navbarNav">
 							<ul class="navbar-nav">
 								<li class="m-1 nav-item">
-									<a class="nav-link disabled" href="/pane/dashboard">
+									<a class="nav-link disabled" href="/career-detector/dashboard">
 										DASHBOARD
 									</a>
 								</li>
 								<li class="m-1 nav-item">
-									<a class="nav-link" href="/pane/addjob">
-										ADD JOB PANE
+									<a class="nav-link" href="/career-detector/add-job">
+										ADD JOB
 									</a>
 								</li>
 								<li class="m-1 nav-item">
@@ -64,8 +64,8 @@ const Dashboard = () => {
 			<div class="text-center m-5">
 				{/* <c:choose>
 					<c:when test="${not empty sortNextFollowUp}"> */}
-				<h1 class="header-pane">
-					<strong>Favorite Panes</strong>
+				<h1 class="header-career-detector">
+					<strong>Favorite career-detectors</strong>
 				</h1>
 				<table class="mb-5 blurred-box-form table table-hover">
 					<thead>
@@ -88,7 +88,7 @@ const Dashboard = () => {
 						</tr>
 					</thead>
 					<tbody>
-						{/* <!-- MAP THROUGH ALL ITERATIONS OF USERS' SAVED JOB PANES--> */}
+						{/* <!-- MAP THROUGH ALL ITERATIONS OF USERS' SAVED JOB career-detectorS--> */}
 						{/* <c:forEach var="job" items="${sortNextFollowUp}">
                         <c:if test="${job.markingPerson.id!=null}">
                             <tr>
@@ -96,7 +96,7 @@ const Dashboard = () => {
                                     <td class="align-middle text-center">
                                         <div class=d-flex>
                                             <div class="m-2 box-link-style-action">	
-                                                <a class="btn btn-link-style-action" href="/pane/edit/${job.id}">Edit</a>
+                                                <a class="btn btn-link-style-action" href="/career-detector/edit-job/${job.id}">Edit</a>
                                             </div>
                                             <div class="m-2 box-link-style-action">	
                                                 <a class="btn btn-link-style-action" href="/unmark/${job.id}">Remove</a>
@@ -108,7 +108,7 @@ const Dashboard = () => {
                                         <fmt:formatDate value="${job.nextFollowUp}" type="date" pattern="MM/dd/yyyy"/>
                                     </td>
                                     <td class="box-link-style-general align-middle text-center">
-                                        <a class="btn btn-link-style-general" href="/pane/detail/${job.id}">
+                                        <a class="btn btn-link-style-general" href="/career-detector/detail/${job.id}">
                                             ${job.jobTitle}
                                         </a>
                                     </td>
@@ -128,7 +128,7 @@ const Dashboard = () => {
                                     <td class="align-middle text-center">${job.additionalNotes}</td>
                                     <td class="box-link-style-delete align-middle text-center">
                                         
-                                        <a class="btn btn-link-style-delete" href="/pane/delete/${job.id}">Delete</a>
+                                        <a class="btn btn-link-style-delete" href="/career-detector/delete/${job.id}">Delete</a>
                                     
                                     </td>
                                 </c:if>
@@ -151,7 +151,7 @@ const Dashboard = () => {
 			<div class="text-center m-5">
 				{/* <c:choose> */}
 				{/* <c:when test="${not empty sortNextFollowUp}"> */}
-				<h1 class="header-pane">
+				<h1 class="header-career-detector">
 					<strong>Dashboard</strong>
 				</h1>
 				{/* <c:if test="${job.markingPerson.id==null}"> */}
@@ -176,14 +176,14 @@ const Dashboard = () => {
 						</tr>
 					</thead>
 					<tbody>
-						{/* <!-- MAP THROUGH ALL ITERATIONS OF USERS' SAVED JOB PANES--> */}
+						{/* <!-- MAP THROUGH ALL ITERATIONS OF USERS' SAVED JOB career-detectorS--> */}
 						{/* <c:forEach var="job" items="${sortNextFollowUp}">
                         <c:if test="${job.markingPerson.id==null}"> */}
 						<tr>
 							{/* <c:if test="${job.user.id==userLogin.id}">			
                                     <td class="align-middle text-center">
                                         <div class="m-2 box-link-style-action">	
-                                            <a class="btn btn-link-style-action" href="/pane/edit/${job.id}">Edit</a>
+                                            <a class="btn btn-link-style-action" href="/career-detector/edit/${job.id}">Edit</a>
                                         </div>
                                         <div class="m-2 box-link-style-action">	
                                             <a class="btn btn-link-style-action" href="/mark/${job.id}">Favorite</a>
@@ -194,7 +194,7 @@ const Dashboard = () => {
                                         <fmt:formatDate value="${job.nextFollowUp}" type="date" pattern="MM/dd/yyyy"/>
                                     </td>
                                     <td class="box-link-style-general align-middle text-center">
-                                        <a class="btn btn-link-style-general" href="/pane/detail/${job.id}">
+                                        <a class="btn btn-link-style-general" href="/career-detector/detail/${job.id}">
                                             ${job.jobTitle}
                                         </a>
                                     </td>
@@ -214,7 +214,7 @@ const Dashboard = () => {
                                     <td class="align-middle text-center">${job.additionalNotes}</td>
                                     <td class="box-link-style-delete align-middle text-center">
                                         
-                                        <a class="btn btn-link-style-delete" href="/pane/delete/${job.id}">Delete</a> */}
+                                        <a class="btn btn-link-style-delete" href="/career-detector/delete/${job.id}">Delete</a> */}
 
 							{/* </td>
                                 </c:if> */}
@@ -229,7 +229,7 @@ const Dashboard = () => {
 				<h3>
 					You have not applied to any jobs yet! Select
 					<strong>
-						<a href="/pane/addjob">Add Job Pane</a>
+						<a href="/career-detector/add-job">Add Job career-detector</a>
 					</strong>{" "}
 					to get started!
 				</h3>

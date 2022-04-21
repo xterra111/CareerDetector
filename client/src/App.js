@@ -12,8 +12,9 @@ function App() {
 				<Routes>
 					<Route element={<LogReg />} path="/" />
 					<Route element={<Dashboard />} path="/career-detector/dashboard" />
-					<Route element={<AddJob />} path="/career-detector/addjob" />
-					<Route element={<EditJob />} path="/career-detector/editjob" />
+					<Route element={<AddJob />} path="/career-detector/show-job/:id" />
+					<Route element={<AddJob />} path="/career-detector/add-job" />
+					<Route element={<EditJob />} path="/career-detector/edit-job/:id" />
 				</Routes>
 			</div>
 		</BrowserRouter>

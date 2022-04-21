@@ -3,6 +3,7 @@ const JobController = require("../controllers/job.controller");
 // import new authenticate file
 const { authenticate } = require("../config/jwt.config");
 
+
 //app parameter gets app (express()) in server.js when invoked
 module.exports = (app) => {
 	app.get("/api/jobs", JobController.findAllJobs);

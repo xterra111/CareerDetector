@@ -7,9 +7,9 @@ const { authenticate } = require("../config/jwt.config");
 module.exports = (app) => {
 	app.get("/api/jobs", JobController.findAllJobs);
 
-	//app.post("/api/jobs",authenticate, JobController.createNewJob);
+	app.post("/api/jobs", authenticate, JobController.createNewJob);
 
-	app.post("/api/jobs", JobController.createNewJob);
+	//app.post("/api/jobs", JobController.createNewJob);
 
 	app.get("/api/jobs/:id", JobController.findOneJob);
 

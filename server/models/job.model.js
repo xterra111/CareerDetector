@@ -17,7 +17,7 @@ const JobSchema = new mongoose.Schema(
 		},
 		// Salary (number) validation not 0
 		salary: {
-			type: String,
+			type: Number,
 			required: [true, "Salary amount is required"],
 			min: 0,
 		},
@@ -59,10 +59,10 @@ const JobSchema = new mongoose.Schema(
 		benefits: {
 			type: String,
 		},
-		// createdBy: {
-		// 	type: mongoose.Schema.Types.ObjectId,
-		// 	ref: "User",
-		// },
+		createdBy: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "User",
+		},
 	},
 	{ timestamps: true }
 );

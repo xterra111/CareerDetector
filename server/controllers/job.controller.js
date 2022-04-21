@@ -17,19 +17,19 @@ module.exports = {
 	},
 
 	createNewJob: (req, res) => {
-		//const newJobObject = new Job(req.body);
+		const newJobObject = new Job(req.body);
 		Job.create(req.body);
-		console
-			.log(req.body)
+		console.log(req.body);
 
-			//commenting these out to get a response.
-			// const decodedJWT = jwt.decode(req.cookies.userToken,{
-			//     complete:true
-			// })
+		//commenting these out to get a response.
+		const decodedJWT = jwt.decode(req.cookies.userToken, {
+			complete: true,
+		});
 
-			// newJobObject.createdBy = decodedJWT.payload.id;
+		newJobObject.createdBy = decodedJWT.payload.id;
 
-			//newJobObject.save()
+		newJobObject
+			.save()
 
 			.then((newJob) => {
 				console.log(newJob);

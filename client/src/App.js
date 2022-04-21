@@ -12,8 +12,8 @@ function App() {
 				<Routes>
 					<Route element={<LogReg />} path="/" />
 					<Route element={<Dashboard />} path="/career-detector/dashboard" />
-					{/* <Route element={<AddJob />} path="/career-detector/addjob" />
-          <Route element={<EditJob />} path="/career-detector/editjob" /> */}
+					<Route element={<AddJob />} path="/career-detector/addjob" />
+					{/* <Route element={<EditJob />} path="/career-detector/editjob" /> */}
 				</Routes>
 			</div>
 		</BrowserRouter>

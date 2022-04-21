@@ -26,6 +26,7 @@ app.use(cookieParser())
 require("./config/mongoose.config")
 ;
 require("./routes/user.routes")(app)
+require("./routes/job.routes")(app)
 
 
 //After connecting to our port (8000), this console.log lets us know we're connected to our server.

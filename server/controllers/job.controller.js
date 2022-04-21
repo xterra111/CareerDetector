@@ -18,7 +18,7 @@ module.exports = {
 
 	createNewJob: (req, res) => {
 		const newJobObject = new Job(req.body);
-		Job.create(req.body);
+		// Job.create(req.body);
 		console.log(req.body);
 
 		//commenting these out to get a response.

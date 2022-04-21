@@ -1,8 +1,82 @@
-import React from "react";
-// import axios from 'axios';
-// import { Link, navigate } from '@reach/router';
+import React, { useState } from "react";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const AddJob = () => {
+	// const [jobTitle, setJobTitle] = useState("");
+	// const [company, setCompany] = useState("");
+	// const [salary, setSalary] = useState();
+
+	// const [jobType, setJobType] = useState(""); 
+	// 	// DROPDOWN: Unknown, Remote, On-Site, Hybrid
+
+	// const [location, setLocation] = useState("");
+
+	// const [followUp, setfollowUp] = useState();
+	// 	//Date Example: https://gist.github.com/mohanramphp/af4f0267f5b1c3c0e726e18019eb2a0b
+
+
+	// const [notes, setNotes] = useState("");
+
+	// const [stage, setStage] = useState("");
+	// // enum: [
+	// // 	"Applied",
+	// // 	"Pending Company Response",
+	// // 	"Technical Interview",
+	// // 	"Pending Company Offer",
+	// // 	"Pending My Decision",
+	// // 	"Other: See Additional Notes",
+	// // ],
+
+	// const [skills, setSkills] = useState("");
+	// const [benefits, setBenefits] = useState("");
+
+	// //is this needed here?
+	// const [createdBy, setCreatedBy] = useState(""); 
+	
+	// const navigate = useNavigate();
+
+
+
+	return (
+		<div>
+
+			
+			
+		</div>
+	)
+
+// Job Title: Text
+// Company: Text
+// Stage of Application:
+	// 	"Applied",
+	// 	"Pending Company Response",
+	// 	"Technical Interview",
+	// 	"Pending Company Offer",
+	// 	"Pending My Decision",
+	// 	"Other: See Additional Notes",
+// - Other: See Additional Notes
+// Salary: Integer
+// Remote:
+// - Unknown
+// - Remote
+// - Hybrid
+// - On-Site
+// Location: Text
+// Additional Notes: Text Area
+
+
+
+
+
+
+
+
+
+
+
+
 	return (
 		<div>
 			addjob
@@ -233,23 +307,5 @@ const AddJob = () => {
 		</div>
 	);
 };
-
-// Job Title: Text
-// Company: Text
-// Stage of Application:
-// - 1 Applied
-// - 2 Pending Company Response
-// - 3 Technical Interview
-// - 4 Pending Company Offer
-// - 5 Pending My Decision
-// - Other: See Additional Notes
-// Salary: Integer
-// Remote:
-// - Unknown
-// - Remote
-// - Hybrid
-// - In-Person
-// Location: Text
-// Additional Notes: Text Area
 
 export default AddJob;

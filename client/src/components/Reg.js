@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 const Register = (props)=>{
@@ -7,6 +8,7 @@ const Register = (props)=>{
 
     const [confirmReg, setConfirmReg] = useState("");
     const [errors, setErrors] = useState({});
+    const navigate = useNavigate();
 
 
     // Using a single state object to hold all the data
@@ -31,23 +33,24 @@ const Register = (props)=>{
         e.preventDefault();
 
         axios.post("http://localhost:8000/api/users/register",
-        user,
-        {
-            // this is how wer credentials on the front-end.
-            withCredentials: true
-        })
-        .then((res)=>{
-            console.log(res.data);
-            setUser({
-                firstName:"",
-                lastName:"",
-                email:"",
-                password:"",
-                confirmPassword:"",
-            });
-            setConfirmReg(
-                "Thank you for Registering to Get THIS not THAT, you can now login",
-            );
+            user,
+            {
+                // this is how wer credentials on the front-end.
+                withCredentials: true
+            })
+            .then((res) => {
+                console.log(res.data);
+                setUser({
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    password: "",
+                    confirmPassword: "",
+                });
+                setConfirmReg(
+                    "Thank you for Registering to Get THIS not THAT, you can now login"
+                );
+            navigate("/career-detector/dashboard");
             setErrors({});
         })
         .catch((err)=>{

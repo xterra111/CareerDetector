@@ -17,7 +17,7 @@ const JobSchema = new mongoose.Schema(
 		},
 		// Salary (number) validation not 0
 		salary: {
-			type: Number,
+			type: String,
 			required: [true, "Salary amount is required"],
 			min: 0,
 		},
@@ -33,7 +33,7 @@ const JobSchema = new mongoose.Schema(
 		},
 		// nextFollowUp (Calender), date
 		followUp: {
-			type: Date,
+			type: String,
 		},
 		// additionalNotes, text
 		notes: {
@@ -59,10 +59,10 @@ const JobSchema = new mongoose.Schema(
 		benefits: {
 			type: String,
 		},
-		createdBy: {
-			type: mongoose.Schema.Types.ObjectId,
-			ref: "User",
-		},
+		// createdBy: {
+		// 	type: mongoose.Schema.Types.ObjectId,
+		// 	ref: "User",
+		// },
 	},
 	{ timestamps: true }
 );
@@ -71,6 +71,6 @@ const Job = mongoose.model("Job", JobSchema);
 
 // unique validation
 
-JobSchema.plugin(uniqueValidator, { message: "Please enter a unique {VALUE}" });
+//JobSchema.plugin(uniqueValidator, { message: "Please enter a unique {VALUE}" });
 
 module.exports = Job;

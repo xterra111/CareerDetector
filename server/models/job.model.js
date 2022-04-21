@@ -33,7 +33,7 @@ const JobSchema = new mongoose.Schema(
 		},
 		// nextFollowUp (Calender), date
 		followUp: {
-			type: String,
+			type: Date,
 		},
 		// additionalNotes, text
 		notes: {

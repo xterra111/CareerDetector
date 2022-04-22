@@ -303,7 +303,7 @@ const AddJob = () => {
 				<div className="d-flex justify-content-center">
 				
 					<Form.Group className="form-sizing-double card-body">
-						<button type="submit" className="btn btn-link-style-submit">Add opportunity</button>
+						<button type="submit" className="btn-link-style-general btn btn-link-style-submit mt-3">Add opportunity</button>
 					</Form.Group>
 				
 				</div>
@@ -453,22 +453,3 @@ const AddJob = () => {
 };
 
 export default AddJob;
-
-// Job Title: Text
-// Company: Text
-// Stage of Application:
-	// 	"Applied",
-	// 	"Pending Company Response",
-	// 	"Technical Interview",
-	// 	"Pending Company Offer",
-	// 	"Pending My Decision",
-	// 	"Other: See Additional Notes",
-// - Other: See Additional Notes
-// Salary: Integer
-// Remote:
-// - Unknown
-// - Remote
-// - Hybrid
-// - On-Site
-// Location: Text
-// Additional Notes: Text Area

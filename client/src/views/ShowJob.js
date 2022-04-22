@@ -26,8 +26,6 @@ const ShowJob = (props) => {
 	return (
 		<div class="d-flex">
 			<div class=" d-flex content  blurred-box-form w-50">
-				{/* <c:choose>
-                    <c:when test="${showJob.user.id==userLogin.id}"> */}
 				{/* <!-- TABLE --> */}
 
 				<table class="table table-hover">
@@ -99,11 +97,6 @@ const ShowJob = (props) => {
 						</tr>
 					</tbody>
 				</table>
-				{/* </c:when>
-                    <c:otherwise> */}
-				{/* <h3>You are not authorized to view this page</h3> */}
-				{/* </c:otherwise>
-                    </c:choose> */}
 			</div>
 
 			{/* Liam this is the section for your maps....HS-04212022 */}

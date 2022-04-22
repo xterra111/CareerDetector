@@ -26,6 +26,13 @@ const ShowJob = (props) => {
         lng: parseFloat(lng)
     }
 
+	const handleRemove = (item) => {
+		const newTodos = markers.filter((y) => y !== item);
+		console.log("test");
+		setMarkers(newTodos);
+		setSelected(null);
+	}
+
 	const onMapClick = useCallback((e) => setMarkers(currentState => [...currentState, { // Adding new markers on click
         lat: e.latLng.lat(),
         lng: e.latLng.lng(),
@@ -193,7 +200,8 @@ const ShowJob = (props) => {
 					{/* onCloseClick={() => setSelected(null) - After closing info window, can re-open another*/}
 					<div>
 						<h2>New Location</h2>
-						<p>Time clicked: {formatRelative(selected.time, new Date())}</p> {/* current relative time */}
+						<button onClick={() => handleRemove(selected)}>Remove Marker</button>
+						<p>Time: {formatRelative(selected.time, new Date())}</p> {/* current relative time */}
 						<p>Latitude: {selected.lat}, Longitude: {selected.lng}</p>
 					</div>
 				</InfoWindow>) 

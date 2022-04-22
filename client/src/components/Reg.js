@@ -142,8 +142,8 @@ const Register = (props)=>{
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="center">
-                        <button>Register Me</button>
+                    <div>
+                        <button className="btn-link-style-general btn btn-link-style-action mt-3">Register</button>
                     </div>
                 </form>
             </div>

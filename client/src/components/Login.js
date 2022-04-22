@@ -61,7 +61,7 @@ const Login = (props) => {
                     />
                 </div>
                 <div className="center">
-                    <button variant="primary" size="sm">Sign In</button>
+                    <button variant="primary" className="btn-link-style-general btn btn-link-style-action mt-3">Sign In</button>
                 </div>
             </form>
             </div>

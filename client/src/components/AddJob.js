@@ -17,25 +17,25 @@ const AddJob = () => {
 		//Date Example: https://gist.github.com/mohanramphp/af4f0267f5b1c3c0e726e18019eb2a0b
 	const [notes, setNotes] = useState("");
 	const [stage, setStage] = useState(""); // drop down
-	const [createdBy, setCreatedBy] = useState(); 
-		//is this needed here?
 
 	const navigate = useNavigate();
     const [errors, setErrors] = useState({});
 
 	const onSubmitHandler = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/api/jobs', {
-            jobTitle,
+		axios.post('http://localhost:8000/api/jobs',
+		{
+			followUp,
+			jobTitle,
             company,
             salary,
             jobType,
             location,
-			followUp,
-			notes,
 			stage,
-			// createdBy
-        })
+			notes
+		},
+        {withCredentials:true, credentials:'include'}
+		)
             .then((res) => {
                 console.log(res);
                 console.log(res.data);
@@ -60,7 +60,6 @@ const AddJob = () => {
 			<div class="mb-5 text-center">
 				<div class="p-1 d-flex justify-content-between align-items-center">
 					<p class="navbar-brand">
-						{/* <strong>Add Job for ${userLogin.firstName}</strong> */}
 						<strong>ADD JOB</strong>
 					</p>
 					<p class="navbar-brand">
@@ -272,23 +271,9 @@ const AddJob = () => {
 					</div>
 					<div className="d-flex justify-content-center">
 						<Form.Group className="form-sizing-double card-body">
-							<button type="submit" className="btn-link-style-general btn btn-link-style-submit mt-3">Add opportunity</button>
+							<button className="btn-link-style-general btn btn-link-style-submit mt-3">Add opportunity</button>
 						</Form.Group>
 					</div>
-					<Form.Group className="form-sizing-double card-body">
-						<Form.Control
-							value={createdBy}
-							type="hidden"
-							onChange={(e) => {
-											setCreatedBy(e.target.value)
-										}}
-						/>
-						{
-							errors.createdBy ?
-								<p>{errors.createdBy.message}</p> :
-								null
-						}
-					</Form.Group>
 
 				</Form>
 			</div>

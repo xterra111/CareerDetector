@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import DeleteButton from "../components/DeleteButton";
 
 const Dashboard = (props) => {
 	const [listAllJobs, setListAllJobs] = useState([]);
@@ -217,7 +218,7 @@ const Dashboard = (props) => {
 													href="/career-detector/edit/${listAll.id}">
 													Edit
 												</a> */}
-												<Link to={`/career-detector/edit/${listAll.id}`}>
+												<Link to={`/career-detector/edit/${listAll._id}`}>
 													{" "}
 													Edit{" "}
 												</Link>
@@ -306,6 +307,10 @@ const Dashboard = (props) => {
 												href="/career-detector/delete/${listAll.id}">
 												Delete
 											</a> */}
+											<DeleteButton
+												listAllID={listAll._id}
+												successCallBack={() => removeFromDom(listAll._id)}
+											/>
 										</td>
 										{/* </c:if> */}
 									</tr>

@@ -79,95 +79,7 @@ const Dashboard = (props) => {
 					</nav>
 				</div>
 			</div>
-			{/* 
-.---.    .    .       . .--. .--. --.--.---..---. .-. 
-|       / \    \     / :    :|   )  |    |  |    (   )
-|---   /___\    \   /  |    ||--'   |    |  |---  `-. 
-|     /     \    \ /   :    ;|  \   |    |  |    (   )
-'    '       `    '     `--' '   `--'--  '  '---' `-'  */}
-			<div class="text-center m-5">
-				{/* <c:choose>
-					<c:when test="${not empty sortNextFollowUp}"> */}
-				<h1 class="header-career-detector">
-					<strong>Favorite career-detectors</strong>
-				</h1>
-				<table class="mb-5 blurred-box-form table table-hover">
-					<thead>
-						<tr>
-							<th class="align-middle text-center">Modify</th>
-							<th class="align-middle text-center">Stage of Interview</th>
-							<th class="align-middle text-center">Next Follow Up</th>
-							<th class="align-middle text-center">Job Title</th>
-							<th class="align-middle text-center">Company</th>
-							<th class="align-middle text-center">Area of Expertise</th>
-							<th class="align-middle text-center">Salary</th>
-							<th class="align-middle text-center">Date Applied</th>
-							<th class="align-middle text-center">Excitement Level</th>
-							<th class="align-middle text-center">Location</th>
-							<th class="align-middle text-center">Contact Information</th>
-							<th class="align-middle text-center">Job Description</th>
-							<th class="align-middle text-center">Notable Benefits</th>
-							<th class="align-middle text-center">Additional Notes</th>
-							<th class="align-middle text-center">Completed</th>
-						</tr>
-					</thead>
-					<tbody>
-						{/* <!-- MAP THROUGH ALL ITERATIONS OF USERS' SAVED JOB career-detectorS--> */}
 
-						{/* <c:forEach var="job" items="${sortNextFollowUp}">
-                        <c:if test="${job.markingPerson.id!=null}">
-                            <tr>
-                                <c:if test="${job.user.id==userLogin.id}">			
-                                    <td class="align-middle text-center">
-                                        <div class=d-flex>
-                                            <div class="m-2 box-link-style-action">	
-                                                <a class="btn btn-link-style-action" href="/career-detector/edit-job/${job.id}">Edit</a>
-                                            </div>
-                                            <div class="m-2 box-link-style-action">	
-                                                <a class="btn btn-link-style-action" href="/unmark/${job.id}">Remove</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle text-center">${job.stageOfInterview}</td>
-                                    <td class="align-middle text-center">
-                                        <fmt:formatDate value="${job.nextFollowUp}" type="date" pattern="MM/dd/yyyy"/>
-                                    </td>
-                                    <td class="box-link-style-general align-middle text-center">
-                                        <a class="btn btn-link-style-general" href="/career-detector/show-job/${job.id}">
-                                            ${job.title}
-                                        </a>
-                                    </td>
-                                    <td class="align-middle text-center">${job.company}</td>
-                                    <td class="align-middle text-center">${job.areaOfExpertise}</td>
-                                    <td class="align-middle text-center">
-                                        <fmt:formatNumber value = "${job.salary}" type = "currency"/>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <fmt:formatDate value="${job.dateApplied}" type="date" pattern="MM/dd/yyyy"/>
-                                    </td>
-                                    <td class="align-middle text-center">${job.excitementLevel}</td>
-                                    <td class="align-middle text-center">${job.location}</td>
-                                    <td class="align-middle text-center">${job.contactInformation}</td>
-                                    <td class="align-middle text-center">${job.jobDescription }</td>
-                                    <td class="align-middle text-center">${job.notableBenefits}</td>
-                                    <td class="align-middle text-center">${job.additionalNotes}</td>
-                                    <td class="box-link-style-delete align-middle text-center">
-                                        
-                                        <a class="btn btn-link-style-delete" href="/career-detector/delete/${job.id}">Delete</a>
-                                    
-                                    </td>
-                                </c:if>
-                            </tr>
-                        </c:if>
-                    </c:forEach> */}
-					</tbody>
-				</table>
-				{/* </c:when>
-					<c:otherwise> */}
-				<h3>You can't favorite anything if you haven't applied to anything!</h3>
-				{/* </c:otherwise>
-				</c:choose> */}
-			</div>
 			{/* .--.     .     .-. .   ..--.  .--.     .    .--. .--. 
 |   :   / \   (   )|   ||   ):    :   / \   |   )|   :
 |   |  /___\   `-. |---||--: |    |  /___\  |--' |   |
@@ -212,9 +124,6 @@ const Dashboard = (props) => {
 												{" "}
 												Edit{" "}
 											</Link>
-										</div>
-										<div class="m-2 box-link-style-action">
-											<Link to={`/mark/${listAll.id}`}> Favorite </Link>
 										</div>
 									</td>
 									
@@ -265,18 +174,6 @@ const Dashboard = (props) => {
 							: null}
 					</tbody>
 				</table>
-				{/* </c:if>
-    </c:when>
-    <c:otherwise> */}
-				<h3>
-					You have not applied to any jobs yet! Select
-					<strong>
-						<a href="/career-detector/add-job">Add Job career-detector</a>
-					</strong>{" "}
-					to get started!
-				</h3>
-				{/* </c:otherwise>
-</c:choose> */}
 			</div>
 		</div>
 	);

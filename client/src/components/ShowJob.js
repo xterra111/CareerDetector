@@ -67,7 +67,7 @@ const ShowJob = (props) => {
 									</a>
 								</li>
 								<li class="m-1 nav-item">
-									<a class="nav-link disabled" href="/career-detector/add-job">
+									<a class="nav-link" href="/career-detector/add-job">
 										ADD JOB
 									</a>
 								</li>
@@ -88,19 +88,13 @@ const ShowJob = (props) => {
 					<table class="table table-hover">
 						<tbody>
 							<tr>
-								<th>Stage of Interview:</th>
-
-								<td>{jobDetails.stage}</td>
-							</tr>
-							<tr>
 								<th>Next Follow Up:</th>
-								<td>
-									<td>{jobDetails.followUp}</td>
-								</td>
+								
+								<td>{jobDetails.followUp}</td>
 							</tr>
 							<tr>
 								<th>Job Title:</th>
-
+								
 								<td>{jobDetails.jobTitle}</td>
 							</tr>
 							<tr>
@@ -115,16 +109,9 @@ const ShowJob = (props) => {
 								</td>
 							</tr>
 							<tr>
-								<th>Date Applied:</th>
+								<th>Commute:</th>
 
-								<td>
-									<td>{jobDetails.dateApplied}</td>
-								</td>
-							</tr>
-							<tr>
-								<th>Excitement Level:</th>
-
-								<td>{jobDetails.excitementLevel}</td>
+								<td>{jobDetails.jobType}</td>
 							</tr>
 							<tr>
 								<th>Location:</th>
@@ -132,24 +119,14 @@ const ShowJob = (props) => {
 								<td>{jobDetails.location}</td>
 							</tr>
 							<tr>
-								<th>Contact Information:</th>
+								<th>Stage of Technical Application:</th>
 
-								<td>{jobDetails.contactInformation}</td>
-							</tr>
-							<tr>
-								<th>Job Description:</th>
-
-								<td>{jobDetails.jobDescription}</td>
-							</tr>
-							<tr>
-								<th>Notable Benefits:</th>
-
-								<td>{jobDetails.notableBenefits}</td>
+								<td>{jobDetails.stage}</td>
 							</tr>
 							<tr>
 								<th>Additional Notes:</th>
 
-								<td>{jobDetails.additionalNotes}</td>
+								<td>{jobDetails.notes}</td>
 							</tr>
 						</tbody>
 					</table>

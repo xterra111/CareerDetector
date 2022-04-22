@@ -192,7 +192,7 @@ const AddJob = () => {
 					</div>
 					<div className="d-flex justify-content-center align-items-end">
 						<Form.Group className="form-sizing-double card-body">
-							<Form.Label> Job Type </Form.Label>
+							<Form.Label> Commute </Form.Label>
 							<Form.Select
 								className="text-center"
 								value={jobType}

@@ -3,10 +3,9 @@ import React from "react";
 const ShowJob = () => {
 	return (
 		<div>
-			ShowJob
-			<div class="content container blurred-box-form">
+			<div class=" d-flex content  blurred-box-form w-50">
 				{/* <c:choose>
-				<c:when test="${showJob.user.id==userLogin.id}"> */}
+                    <c:when test="${showJob.user.id==userLogin.id}"> */}
 				{/* <!-- TABLE --> */}
 
 				<table class="table table-hover">
@@ -68,12 +67,15 @@ const ShowJob = () => {
 					</tbody>
 				</table>
 				{/* </c:when>
-				<c:otherwise> */}
+                    <c:otherwise> */}
 				{/* <h3>You are not authorized to view this page</h3> */}
 				{/* </c:otherwise>
-			</c:choose> */}
+                    </c:choose> */}
 			</div>
-			<div class="d-flex justify-content-center align-items-center polaroid-side-display">
+
+			{/* Liam this is the section for your maps....HS-04212022 */}
+
+			<div class=" w-25  justify-content-center align-items-center polaroid-side-display">
 				<div class="content text-center ">
 					<img
 						src="/../views/img/2011-ireland-modern2.jpg"

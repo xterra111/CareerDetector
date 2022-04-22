@@ -24,7 +24,7 @@ const ShowJob = (props) => {
 	}, [id, navigate]);
 
 	return (
-		<div>
+		<div class="d-flex">
 			<div class=" d-flex content  blurred-box-form w-50">
 				{/* <c:choose>
                     <c:when test="${showJob.user.id==userLogin.id}"> */}
@@ -108,7 +108,7 @@ const ShowJob = (props) => {
 
 			{/* Liam this is the section for your maps....HS-04212022 */}
 
-			<div class=" w-25  justify-content-center align-items-center polaroid-side-display">
+			<div class=" w-20  d-flex justify-content-center align-items-center polaroid-side-display">
 				<div class="content text-center ">
 					<img
 						src="/../views/img/2011-ireland-modern2.jpg"

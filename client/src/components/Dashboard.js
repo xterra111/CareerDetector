@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import DeleteButton from "../components/DeleteButton";
+import DeleteButton from "./DeleteButton";
 
 const Dashboard = (props) => {
 	const [listAllJobs, setListAllJobs] = useState([]);
@@ -173,6 +173,8 @@ const Dashboard = (props) => {
 |   |  /___\   `-. |---||--: |    |  /___\  |--' |   |
 |   ; /     \ (   )|   ||   ):    ; /     \ |  \ |   ;
 '--' '       ` `-' '   ''--'  `--' '       `'   `'--'  */}
+			
+
 			<div class="text-center m-5">
 				{/* <c:choose> */}
 				{/* <c:when test="${not empty sortNextFollowUp}"> */}
@@ -185,18 +187,13 @@ const Dashboard = (props) => {
 					<thead>
 						<tr>
 							<th class="align-middle text-center">Modify</th>
-							<th class="align-middle text-center">Stage of Interview</th>
 							<th class="align-middle text-center">Next Follow Up</th>
 							<th class="align-middle text-center">Job Title</th>
 							<th class="align-middle text-center">Company</th>
-							<th class="align-middle text-center">Area of Expertise</th>
 							<th class="align-middle text-center">Salary</th>
-							<th class="align-middle text-center">Date Applied</th>
-							<th class="align-middle text-center">Excitement Level</th>
+							<th class="align-middle text-center">Commute</th>
 							<th class="align-middle text-center">Location</th>
-							<th class="align-middle text-center">Contact Information</th>
-							<th class="align-middle text-center">Job Description</th>
-							<th class="align-middle text-center">Notable Benefits</th>
+							<th class="align-middle text-center">Stage of Technical Application</th>
 							<th class="align-middle text-center">Additional Notes</th>
 							<th class="align-middle text-center">Completed</th>
 						</tr>
@@ -208,113 +205,63 @@ const Dashboard = (props) => {
 
 						{listAllJobs
 							? listAllJobs.map((listAll, index) => (
-									<tr>
-										{/* <c:if test="${job.user.id==userLogin.id}">			 */}
-										<td class="align-middle text-center">
-											<div class="m-2 box-link-style-action">
-												{/* <a class="btn btn-link-style-action" href="/career-detector/edit/${job.id}">Edit</a> */}
-												{/* <a
-													class="btn btn-link-style-action"
-													href="/career-detector/edit/${listAll.id}">
-													Edit
-												</a> */}
-												<Link to={`/career-detector/edit/${listAll._id}`}>
-													{" "}
-													Edit{" "}
-												</Link>
-											</div>
-											<div class="m-2 box-link-style-action">
-												{/* <a class="btn btn-link-style-action" href="/mark/${job.id}">Favorite</a> */}
-												{/* <a
-													class="btn btn-link-style-action"
-													href="/mark/${listAll.id}">
-													Favorite
-											</a> */}
-												<Link to={`/mark/${listAll.id}`}> Favorite </Link>
-											</div>
-										</td>
-										{/* <td class="align-middle text-center">${job.stageOfInterview}</td> */}
-
-										<td class="align-middle text-center">
-											{listAll.stageOfInterview}
-										</td>
-										<td class="align-middle text-center">
-											{/* <fmt:formatDate value="${job.nextFollowUp}" type="date" pattern="MM/dd/yyyy"/> */}
-											{listAll.nextFollowUp}
-										</td>
-										<td class="box-link-style-general align-middle text-center">
-											{/* <a class="btn btn-link-style-general" href="/career-detector/show-job/${job.id}"> */}
-											{/* <a
-												class="btn btn-link-style-general"
-												href="/career-detector/show-job/${listAll.id}">
-												{/* ${job.jobTitle}	 */}
-											{/* {listAll.jobTitle} */}
-											{/* </a> */}
-											<Link
-												to={`/career-detector/show-job/${listAll._id}`}
-												class="btn btn-link-style-general">
-												{listAll.title}
+								<tr>
+									<td class="align-middle text-center">
+										<div class="m-2 box-link-style-action">
+											<Link to={`/career-detector/edit-job/${listAll._id}`}>
+												{" "}
+												Edit{" "}
 											</Link>
-										</td>
-										{/* <td class="align-middle text-center">${job.company}</td> */}
-										<td class="align-middle text-center">{listAll.company}</td>
+										</div>
+										<div class="m-2 box-link-style-action">
+											<Link to={`/mark/${listAll.id}`}> Favorite </Link>
+										</div>
+									</td>
+									
+									<td class="align-middle text-center">
+										{/* <fmt:formatDate value="${job.nextFollowUp}" type="date" pattern="MM/dd/yyyy"/> */}
+										{listAll.followUp}
+									</td>
+									
+									<td class="box-link-style-general align-middle text-center">
+										<Link
+											to={`/career-detector/show-job/${listAll._id}`}
+											class="btn btn-link-style-general">
+											{listAll.jobTitle}
+										</Link>
+									</td>
 
-										{/* <td class="align-middle text-center">${job.areaOfExpertise}</td> */}
-										<td class="align-middle text-center">
-											{listAll.areaOfExpertise}
-										</td>
+									<td class="align-middle text-center">{listAll.company}</td>
 
-										<td class="align-middle text-center">
-											{/* <fmt:formatNumber value = "${job.salary}" type = "currency"/> */}
-											{listAll.salary}
-										</td>
-										<td class="align-middle text-center">
-											{/* <fmt:formatDate value="${job.dateApplied}" type="date" pattern="MM/dd/yyyy"/> */}
-											{listAll.dateApplied}
-										</td>
-										{/* <td class="align-middle text-center">${job.excitementLevel}</td> */}
-										<td class="align-middle text-center">
-											{listAll.excitementLevel}
-										</td>
+									<td class="align-middle text-center">
+										{/* <fmt:formatNumber value = "${job.salary}" type = "currency"/> */}
+										{listAll.salary}
+									</td>
 
-										{/* <td class="align-middle text-center">${job.location}</td> */}
-										<td class="align-middle text-center">{listAll.location}</td>
+									<td class="align-middle text-center">
+										{listAll.jobType}
+									</td>
 
-										{/* <td class="align-middle text-center">${job.contactInformation}</td> */}
-										<td class="align-middle text-center">
-											{listAll.contactInformation}
-										</td>
+									{/* <td class="align-middle text-center">${job.location}</td> */}
+									<td class="align-middle text-center">{listAll.location}</td>
 
-										{/* <td class="align-middle text-center">${job.jobDescription }</td> */}
-										<td class="align-middle text-center">
-											{listAll.jobDescription}
-										</td>
+									<td class="align-middle text-center">
+										{listAll.stage}
+									</td>
 
-										{/* <td class="align-middle text-center">${job.notableBenefits}</td> */}
-										<td class="align-middle text-center">
-											{listAll.notableBenefits}
-										</td>
+									<td class="align-middle text-center">
+										{listAll.notes}
+									</td>
 
-										{/* <td class="align-middle text-center">${job.additionalNotes}</td> */}
-										<td class="align-middle text-center">
-											{listAll.additionalNotes}
-										</td>
-
-										<td class="box-link-style-delete align-middle text-center">
-											{/* <a class="btn btn-link-style-delete" href="/career-detector/delete/${job.id}">Delete</a> */}
-											{/* <a
-												class="btn btn-link-style-delete"
-												href="/career-detector/delete/${listAll.id}">
-												Delete
-											</a> */}
-											<DeleteButton
-												listAllID={listAll._id}
-												successCallBack={() => removeFromDom(listAll._id)}
-											/>
-										</td>
-										{/* </c:if> */}
-									</tr>
-							  ))
+									<td class="box-link-style-delete align-middle text-center">
+										<DeleteButton
+											listAllID={listAll._id}
+											successCallBack={() => removeFromDom(listAll._id)}
+										/>
+									</td>
+									{/* </c:if> */}
+								</tr>
+							))
 							: null}
 					</tbody>
 				</table>

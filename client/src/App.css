@@ -108,45 +108,54 @@ _/     \ :      |    |  :    ;|  \|     |      |  |  \||  \
 */
 
     
-.box-link-style-action { background-color: #FFDFBF; }
-            
-.btn-link-style-action {
-  color: #EB6123;
-  transition: all 0.5s;
-  position: relative;
-}
-.btn-link-style-action::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background-color: (235, 97, 35,0.1);
-  transition: all 0.3s;
-}
-.btn-link-style-action:hover::before {
-  opacity: 0 ;
-  transform: scale(0.5,0.5);
-}
-.btn-link-style-action::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0;
-  transition: all 0.3s;
-  border: 1px solid rgba(255, 179, 71,0.8);
-  transform: scale(1.2,1.2);
-}
-.btn-link-style-action:hover::after {
-  opacity: 0.8;
-  transform: scale(1,1);
-}
+.box-link-style-general { background-color: #A1A6C2;}
+
+	
+	.btn-link-style-action {
+    color: #304CC0;
+    transition: all 0.5s;
+    position: relative; 
+	}
+	.btn-link-style-action span {
+    z-index: 2; 
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+	}
+	.btn-link-style-action::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid rgba(48, 76, 192,0.2);
+    background-color: rgba(161, 166, 194,0.1);
+	}
+	.btn-link-style-action::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid rgba(48, 76, 192,0.2);
+    background-color: rgba(161, 166, 194,0.1);
+	}
+	.btn-link-style-action:hover::before {
+    transform: rotate(-180deg);
+    background-color: rgba(161, 166, 194,0);
+	}
+	.btn-link-style-action:hover::after {
+    transform: rotate(180deg);
+    background-color: rgba(161, 166, 194,0);
+	}
+
 
 
 

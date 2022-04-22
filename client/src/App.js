@@ -1,12 +1,12 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LogReg from "./views/LogReg";
-import AddJob from "./views/AddJob";
-import EditJob from "./views/EditJob";
-import Dashboard from "./views/Dashboard";
+import AddJob from "./components/AddJob";
+import EditJob from "./components/EditJob";
+import Dashboard from "./components/Dashboard";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ShowJob from "./views/ShowJob";
-import Error from "./views/Error";
+import ShowJob from "./components/ShowJob";
+import Error from "./components/Error";
 function App() {
 	return (
 		<BrowserRouter>

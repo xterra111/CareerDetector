@@ -53,11 +53,11 @@ const AddJob = () => {
 | \ |  /___\    \   /  |--:   /___\  |--' 
 |  \| /     \    \ /   |   ) /     \ |  \ 
 '   ''       `    '    '--' '       `'   ` */}
-			<div class="blurred-box text-center " id="myHeader">
-				<div class="p-1 blurred-box d-flex justify-content-between align-items-center">
+			<div class="text-center " id="myHeader">
+				<div class="p-1 d-flex justify-content-between align-items-center">
 					<p class="navbar-brand">
 						{/* <strong>Add Job for ${userLogin.firstName}</strong> */}
-						<strong>Add Job for </strong>
+						<strong>ADD JOB</strong>
 					</p>
 					<p class="navbar-brand">
 						<em>
@@ -131,7 +131,7 @@ const AddJob = () => {
 		'     `--' '   `'    '
 		 --> */}
 			<form
-				className="polaroid-sizing blurred-box-form"
+				className="form-sizing-double blurred-box-form"
 				onSubmit={onSubmitHandler}
 			>				
 				<div className="d-flex justify-content-center">

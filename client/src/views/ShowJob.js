@@ -61,38 +61,37 @@ const ShowJob = (props) => {
 							<th>Date Applied:</th>
 
 							<td>
-								{/* <fmt:formatDate value="${showJob.dateApplied}" type="date" pattern="MM/dd/yyyy"/> */}
 								<td>{jobDetails.dateApplied}</td>
 							</td>
 						</tr>
 						<tr>
 							<th>Excitement Level:</th>
-							{/* <td>${showJob.excitementLevel}</td> */}
+
 							<td>{jobDetails.excitementLevel}</td>
 						</tr>
 						<tr>
 							<th>Location:</th>
-							{/* <td>${showJob.location}</td> */}
+
 							<td>{jobDetails.location}</td>
 						</tr>
 						<tr>
 							<th>Contact Information:</th>
-							{/* <td>${showJob.contactInformation}</td> */}
+
 							<td>{jobDetails.contactInformation}</td>
 						</tr>
 						<tr>
 							<th>Job Description:</th>
-							{/* <td>${showJob.jobDescription}</td> */}
+
 							<td>{jobDetails.jobDescription}</td>
 						</tr>
 						<tr>
 							<th>Notable Benefits:</th>
-							{/* <td>${showJob.notableBenefits}</td> */}
+
 							<td>{jobDetails.notableBenefits}</td>
 						</tr>
 						<tr>
 							<th>Additional Notes:</th>
-							{/* <td>${showJob.additionalNotes}</td> */}
+
 							<td>{jobDetails.additionalNotes}</td>
 						</tr>
 					</tbody>

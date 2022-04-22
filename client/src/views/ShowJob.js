@@ -34,57 +34,68 @@ const ShowJob = (props) => {
 					<tbody>
 						<tr>
 							<th>Stage of Interview:</th>
-							{/* <td>${showJob.stageOfInterview}</td> */}
+
+							<td>{jobDetails.stage}</td>
 						</tr>
 						<tr>
 							<th>Next Follow Up:</th>
 							<td>
-								{/* <fmt:formatDate value="${showJob.nextFollowUp}" type="date" pattern="MM/dd/yyyy"/> */}
+								<td>{jobDetails.followUp}</td>
 							</td>
 						</tr>
 						<tr>
 							<th>Job Title:</th>
-							{/* <td>${showJob.jobTitle}</td> */}
+
+							<td>{jobDetails.jobTitle}</td>
 						</tr>
 						<tr>
 							<th>Company:</th>
-							{/* <td>${showJob.company}</td> */}
+
+							<td>{jobDetails.company}</td>
 						</tr>
 						<tr>
 							<th>Salary:</th>
 							<td>
-								{/* <fmt:formatNumber value = "${showJob.salary}" type = "currency"/> */}
+								<td>{jobDetails.salary}</td>
 							</td>
 						</tr>
 						<tr>
 							<th>Date Applied:</th>
+
 							<td>
 								{/* <fmt:formatDate value="${showJob.dateApplied}" type="date" pattern="MM/dd/yyyy"/> */}
+								<td>{jobDetails.dateApplied}</td>
 							</td>
 						</tr>
 						<tr>
 							<th>Excitement Level:</th>
 							{/* <td>${showJob.excitementLevel}</td> */}
+							<td>{jobDetails.excitementLevel}</td>
 						</tr>
 						<tr>
 							<th>Location:</th>
 							{/* <td>${showJob.location}</td> */}
+							<td>{jobDetails.location}</td>
 						</tr>
 						<tr>
 							<th>Contact Information:</th>
 							{/* <td>${showJob.contactInformation}</td> */}
+							<td>{jobDetails.contactInformation}</td>
 						</tr>
 						<tr>
 							<th>Job Description:</th>
 							{/* <td>${showJob.jobDescription}</td> */}
+							<td>{jobDetails.jobDescription}</td>
 						</tr>
 						<tr>
 							<th>Notable Benefits:</th>
 							{/* <td>${showJob.notableBenefits}</td> */}
+							<td>{jobDetails.notableBenefits}</td>
 						</tr>
 						<tr>
 							<th>Additional Notes:</th>
 							{/* <td>${showJob.additionalNotes}</td> */}
+							<td>{jobDetails.additionalNotes}</td>
 						</tr>
 					</tbody>
 				</table>

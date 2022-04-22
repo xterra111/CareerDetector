@@ -1,6 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
-const ShowJob = () => {
+const ShowJob = (props) => {
+	const [jobDetails, setJobDetails] = useState({});
+	//const { id } = useParams();
+	// Added the static value of id to test out the axios call - HS - 04212022
+	const id = "626197aaba458d2aaba4e8f2";
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		axios
+			.get(`http://localhost:8000/api/jobs/${id}`)
+			.then((res) => {
+				console.log(res.data);
+				setJobDetails(res.data);
+			})
+			.catch((err) => {
+				console.log(err);
+				//If Error Display the Error Page
+				navigate("/pets/error");
+			});
+	}, [id, navigate]);
+
 	return (
 		<div>
 			<div class=" d-flex content  blurred-box-form w-50">

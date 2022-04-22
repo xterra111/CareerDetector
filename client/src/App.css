@@ -347,8 +347,8 @@ https://www.sliderrevolution.com/resources/css-forms/
 }
 
 .form-sizing-double{
-  padding: 10px 0px;
-	width: 30%;
+  padding: 10px 30px;
+	width: 60%;
 	text-align: center;
   background-color: inherit;
 }

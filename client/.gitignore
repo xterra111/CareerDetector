@@ -6,6 +6,9 @@
 .pnp.js
 /env
 .env
+_components
+_helpers
+_services
 
 # testing
 /coverage

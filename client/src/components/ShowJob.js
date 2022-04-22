@@ -144,7 +144,7 @@ const ShowJob = (props) => {
 							<tr>
 								<th>Job Title:</th>
 								
-								<td>{jobDetails.jobTitle}</td>
+								<td>{jobDetails.title}</td>
 							</tr>
 							<tr>
 								<th>Company:</th>

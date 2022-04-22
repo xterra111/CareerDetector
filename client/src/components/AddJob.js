@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const AddJob = () => {
 
 	// States for JOB
-	const [jobTitle, setJobTitle] = useState("");
+	const [title, setTitle] = useState("");
 	const [company, setCompany] = useState("");
 	const [salary, setSalary] = useState();
 	const [jobType, setJobType] = useState(""); 
@@ -26,7 +26,7 @@ const AddJob = () => {
 		axios.post('http://localhost:8000/api/jobs',
 		{
 			followUp,
-			jobTitle,
+			title,
             company,
             salary,
             jobType,
@@ -141,16 +141,16 @@ const AddJob = () => {
 						<Form.Group className="form-sizing-double card-body">
 							<Form.Label> Job Title </Form.Label>
 							<Form.Control
-								value={jobTitle}
+								value={title}
 								type="text"
 								className="text-center"
 								onChange={(e) => {
-												setJobTitle(e.target.value)
+												setTitle(e.target.value)
 											}}
 							/>
 							{
-								errors.jobTitle ?
-									<p>{errors.jobTitle.message}</p> :
+								errors.title ?
+									<p>{errors.title.message}</p> :
 									null
 							}
 						</Form.Group>
@@ -199,6 +199,7 @@ const AddJob = () => {
 												setJobType(e.target.value)
 											}}
 							>
+								<option defaultValue="Make a Selection"></option>
 								<option>Unknown</option>
 								<option>Remote</option>
 								<option>On-Site</option>

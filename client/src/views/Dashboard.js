@@ -5,11 +5,11 @@ import React from "react";
 const Dashboard = () => {
 	return (
 		<div>
-			Dashboard
-			<div class="blurred-box text-center " id="myHeader">
-				<div class="p-1 blurred-box d-flex justify-content-between align-items-center">
+			<div class="text-center " id="myHeader">
+				<div class="p-1 d-flex justify-content-between align-items-center">
 					<p class="navbar-brand">
 						<strong>
+							DASHBOARD
 							{/* Dashboard for ${userLogin.firstName} ${userLogin.lastName} */}
 						</strong>
 					</p>
@@ -108,7 +108,7 @@ const Dashboard = () => {
                                         <fmt:formatDate value="${job.nextFollowUp}" type="date" pattern="MM/dd/yyyy"/>
                                     </td>
                                     <td class="box-link-style-general align-middle text-center">
-                                        <a class="btn btn-link-style-general" href="/career-detector/detail/${job.id}">
+                                        <a class="btn btn-link-style-general" href="/career-detector/show-job/${job.id}">
                                             ${job.jobTitle}
                                         </a>
                                     </td>
@@ -194,7 +194,7 @@ const Dashboard = () => {
                                         <fmt:formatDate value="${job.nextFollowUp}" type="date" pattern="MM/dd/yyyy"/>
                                     </td>
                                     <td class="box-link-style-general align-middle text-center">
-                                        <a class="btn btn-link-style-general" href="/career-detector/detail/${job.id}">
+                                        <a class="btn btn-link-style-general" href="/career-detector/show-job/${job.id}">
                                             ${job.jobTitle}
                                         </a>
                                     </td>

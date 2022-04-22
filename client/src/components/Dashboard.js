@@ -134,7 +134,7 @@ const Dashboard = (props) => {
                                     </td>
                                     <td class="box-link-style-general align-middle text-center">
                                         <a class="btn btn-link-style-general" href="/career-detector/show-job/${job.id}">
-                                            ${job.jobTitle}
+                                            ${job.title}
                                         </a>
                                     </td>
                                     <td class="align-middle text-center">${job.company}</td>
@@ -227,7 +227,7 @@ const Dashboard = (props) => {
 										<Link
 											to={`/career-detector/show-job/${listAll._id}`}
 											class="btn btn-link-style-general">
-											{listAll.jobTitle}
+											{listAll.title}
 										</Link>
 									</td>
 

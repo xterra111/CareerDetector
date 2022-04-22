@@ -4,9 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
-/env
-.env
-*env
+/env.local
+.env.local
+*env.local
 _components
 _helpers
 _services

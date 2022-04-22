@@ -91,7 +91,7 @@ const ShowJob = (props) => {
 				<div class="p-1 d-flex justify-content-between align-items-center">
 					<p class="navbar-brand">
 						{/* <strong>Add Job for ${userLogin.firstName}</strong> */}
-						<strong>Show JOB Details</strong>
+						<strong>SHOW JOB DETAILS</strong>
 					</p>
 					<p class="navbar-brand">
 						<em>

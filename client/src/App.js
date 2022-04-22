@@ -14,9 +14,9 @@ function App() {
 				<Routes>
 					<Route element={<LogReg />} path="/" />
 					<Route element={<Dashboard />} path="/career-detector/dashboard" />
-					{/* <Route element={<ShowJob />} path="/career-detector/show-job/:id" /> */}
+					<Route element={<ShowJob />} path="/career-detector/show-job/:id" />
 					{/* Added the below for showjob to test the render of the UI alone - HS - 04212022 */}
-					<Route element={<ShowJob />} path="/career-detector/show-job/" />
+					{/* <Route element={<ShowJob />} path="/career-detector/show-job/" /> */}
 
 					<Route element={<AddJob />} path="/career-detector/add-job" />
 					<Route element={<EditJob />} path="/career-detector/edit-job/:id" />

@@ -61,7 +61,9 @@ module.exports = {
 			})
 			.catch((err) => {
 				console.log("Find One Job failed");
-				res.json({ message: "Something went wrong in findOneJob", error: err });
+				// res.json({ message: "Something went wrong in findOneJob", error: err });
+				// HS - 04222020 - Setting Error here to ensure in case of error the error page is displayed
+				res.status(400).json(err);
 			});
 	},
 

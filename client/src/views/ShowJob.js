@@ -4,9 +4,9 @@ import axios from "axios";
 
 const ShowJob = (props) => {
 	const [jobDetails, setJobDetails] = useState({});
-	//const { id } = useParams();
+	const { id } = useParams();
 	// Added the static value of id to test out the axios call - HS - 04212022
-	const id = "626197aaba458d2aaba4e8f2";
+	//const id = "626197aaba458d2aaba4e8f2";
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -19,7 +19,7 @@ const ShowJob = (props) => {
 			.catch((err) => {
 				console.log(err);
 				//If Error Display the Error Page
-				navigate("/pets/error");
+				navigate("/career-detector/error");
 			});
 	}, [id, navigate]);
 

@@ -124,7 +124,7 @@ const Dashboard = (props) => {
 								<tr>
 									<td class="align-middle text-center">
 										<div class="m-2 box-link-style-action">
-											<Link class="btn-link-style-general btn btn-link-style-submit" to={`/career-detector/edit-job/${listAll._id}`}>
+											<Link class="btn btn-link-style-general btn btn-link-style-submit" to={`/career-detector/edit-job/${listAll._id}`}>
 												{" "}
 												Edit{" "}
 											</Link>
@@ -171,7 +171,6 @@ const Dashboard = (props) => {
 											successCallBack={() => removeFromDom(listAll._id)}
 										/>
 									</td>
-									{/* </c:if> */}
 								</tr>
 							))
 							: null}

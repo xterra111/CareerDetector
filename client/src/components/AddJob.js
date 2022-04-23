@@ -127,7 +127,7 @@ const AddJob = () => {
 							<Form.Label> Next Follow Up: </Form.Label>
 							<Form.Control
 								value={followUp}
-								type="date"
+								type="datetime-local"
 								className="text-center"
 								onChange={(e) => {
 												setFollowUp(e.target.value)
@@ -213,7 +213,7 @@ const AddJob = () => {
 							}
 						</Form.Group>
 						<Form.Group className="form-sizing-double card-body">
-							<Form.Label> Location </Form.Label>
+							<Form.Label> Location (Optional)</Form.Label>
 							<Form.Control
 								value={location}
 								className="text-center"

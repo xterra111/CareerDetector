@@ -20,7 +20,7 @@ const JobSchema = new mongoose.Schema(
 		salary: {
 			type: Number,
 			required: [true, "Salary amount is required"],
-			min: [1,"Minimum amount for the job is $1"]
+			min: [1,"Salary must be greater than $1 (although you should get paid more)"]
 		},
 		// Remote,OnSite, Hybrid
 		jobType: {
@@ -41,9 +41,11 @@ const JobSchema = new mongoose.Schema(
 		notes: {
 			type: String,
 		},
+		
 		// stage of interview, enum
 		stage: {
 			type: String,
+			enum: ["Remote", "On-Site", "Hybrid", "Unknown"],
 			enum: [
 				"Applied",
 				"Pending Company Response",
@@ -52,6 +54,7 @@ const JobSchema = new mongoose.Schema(
 				"Pending My Decision",
 				"Other: See Additional Notes",
 			],
+			required: [true, "Please specify Stage of Technical Application."]
 		},
 		// Person who has created the job posting
 		createdBy: {

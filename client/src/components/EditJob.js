@@ -314,7 +314,7 @@ const EditJob = (props) => {
 							}
 						</Form.Group>
 						<Form.Group className="form-sizing-double card-body">
-							<Form.Label> Location </Form.Label>
+							<Form.Label> Location (Optional) </Form.Label>
 							<Form.Control
 								placeholder={jobDetails.location}
 								className="text-center"

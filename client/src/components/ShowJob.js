@@ -113,14 +113,14 @@ const ShowJob = (props) => {
 |  \| /     \    \ /   |   ) /     \ |  \ 
 '   ''       `    '    '--' '       `'   ` */}
 			<div class="text-center " id="myHeader">
-				<div class="p-1 d-flex justify-content-between align-items-center">
+				<div class="text-mont p-1 d-flex justify-content-between align-items-center">
 					<p class="navbar-brand">
 						{/* <strong>Add Job for ${userLogin.firstName}</strong> */}
 						<strong>SHOW JOB DETAILS</strong>
 					</p>
 					<p class="navbar-brand">
 						<em>
-							I focused on being a photographer, but nothing ever developed.
+							A friend has a a job running a farm for Old McDonald. He's the new CIEIO.
 						</em>
 					</p>
 				</div>
@@ -169,7 +169,7 @@ const ShowJob = (props) => {
 				(   )|   |:    ;   \/ \/   
 				-`-' '   ' `--'     ' '    
 							*/}
-			<div class=" d-flex ">
+			<div class=" d-flex text-mont">
 				<div class=" d-flex content  blurred-box-form w-75">
 					<table class="table table-hover">
 						<tbody>

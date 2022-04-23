@@ -50,7 +50,7 @@ const Register = (props)=>{
                 setConfirmReg(
                     "Thank you for Registering to Get THIS not THAT, you can now login"
                 );
-            navigate("/career-detector/dashboard");
+            navigate("/career-detector/welcome");
             setErrors({});
         })
         .catch((err)=>{

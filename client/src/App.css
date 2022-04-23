@@ -380,6 +380,14 @@ div.polaroid {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 10px;
 }
+img{
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: center;
+  border-radius: 10px;
+  opacity: 80%;
+}
 
 div.polaroid-side-display {
   width: 50%;
@@ -391,7 +399,7 @@ div.polaroid-side-display {
   opacity: 0.8;
 }
 
-div.container {
+.container, div.container {
   text-align: center;
   padding: 10px 20px;
 }
@@ -412,7 +420,6 @@ div.container {
   font-size: 18px;
 }
 
-
 /* 
   .--.    .    .--.  .--. .   . .-. .---..    
 :       / \   |   ):    :|   |(   )|    |    
@@ -420,13 +427,13 @@ div.container {
 :     /     \ |  \ :    ;:   ;(   )|    |    
 `--''       `'   ` `--'  `-'  `-' '---''---'
 
-###### W3 Schools Boostrap Carousel####
-	https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_carousel2&stacked=h
+https://react-bootstrap.github.io/components/carousel/
  */
 
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
     width: 60%;
     margin: auto;
+    text-align: center;
 }
 

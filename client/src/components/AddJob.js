@@ -44,7 +44,8 @@ const AddJob = () => {
             .catch((err) => {
                 console.log(err);
 				setErrors(err.response.data.errors)
-				navigate('/career-detector/error')
+				// The reason for validation error not showing up is the re-routing to error. Please do NOT comment this out ever again.
+				// navigate('/career-detector/error')
             })
     };
 
@@ -237,6 +238,7 @@ const AddJob = () => {
 												setStage(e.target.value)
 											}}
 							>
+								<option defaultValue="Make a Selection"></option>
 								<option>Applied</option>
 								<option>Pending Company Response</option>
 								<option>Technical Interview</option>

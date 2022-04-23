@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link} from "react-router-dom";
 import DeleteButton from "./DeleteButton";
 
 const Dashboard = (props) => {
 	const [listAllJobs, setListAllJobs] = useState([]);
-	// const [errors, setErrors] = useState({});
 
 	const removeFromDom = (listAllid) => {
 		setListAllJobs(listAllJobs.filter((listAll) => listAll._id !== listAllid));
 	};
-	const navigate = useNavigate();
 
 	useEffect(() => {
 		axios
@@ -88,13 +86,9 @@ const Dashboard = (props) => {
 			
 
 			<div class="text-center m-5">
-				{/* <c:choose> */}
-				{/* <c:when test="${not empty sortNextFollowUp}"> */}
 				<h1 class="header-career-detector">
 					<strong>Dashboard</strong>
 				</h1>
-				{/* <c:if test="${job.markingPerson.id==null}"> */}
-
 				<table class="mb-5 blurred-box-form table table-hover">
 					<thead>
 						<tr>
@@ -111,16 +105,12 @@ const Dashboard = (props) => {
 						</tr>
 					</thead>
 					<tbody>
-						{/* <!-- MAP THROUGH ALL ITERATIONS OF USERS' SAVED JOB career-detectorS--> */}
-						{/* <c:forEach var="job" items="${sortNextFollowUp}">
-                        <c:if test="${job.markingPerson.id==null}"> */}
-
 						{listAllJobs
 							? listAllJobs.map((listAll, index) => (
 								<tr>
 									<td class="align-middle text-center">
 										<div class="m-2 box-link-style-action">
-											<Link to={`/career-detector/edit-job/${listAll._id}`}>
+											<Link class="btn-link-style-general btn btn-link-style-submit" to={`/career-detector/edit-job/${listAll._id}`}>
 												{" "}
 												Edit{" "}
 											</Link>
@@ -128,8 +118,9 @@ const Dashboard = (props) => {
 									</td>
 									
 									<td class="align-middle text-center">
-										{/* <fmt:formatDate value="${job.nextFollowUp}" type="date" pattern="MM/dd/yyyy"/> */}
-										{listAll.followUp}
+										
+										{listAll.followUp.substring(0,10)}
+										
 									</td>
 									
 									<td class="box-link-style-general align-middle text-center">
@@ -143,7 +134,7 @@ const Dashboard = (props) => {
 									<td class="align-middle text-center">{listAll.company}</td>
 
 									<td class="align-middle text-center">
-										{/* <fmt:formatNumber value = "${job.salary}" type = "currency"/> */}
+
 										{listAll.salary}
 									</td>
 

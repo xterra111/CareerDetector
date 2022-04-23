@@ -146,7 +146,9 @@ const ShowJob = (props) => {
 							<tr>
 								<th>Next Follow Up:</th>
 								
-								<td>{jobDetails.followUp}</td>
+								<td>
+									{jobDetails.followUp.substring(0,10)}
+								</td>
 							</tr>
 							<tr>
 								<th>Job Title:</th>
@@ -187,7 +189,13 @@ const ShowJob = (props) => {
 						</tbody>
 					</table>
 				</div>
-
+					{/*       
+					.    .    .    .--. 
+					|\  /|   / \   |   )
+					| \/ |  /___\  |--' 
+					|    | /     \ |    
+					'    ''       `'    
+										*/}
 				{/* Liam this is the section for your maps....HS-04212022 */}
 
 				<div class=" w-20  d-flex justify-content-center align-items-center polaroid-side-display">
@@ -195,27 +203,18 @@ const ShowJob = (props) => {
 					<GoogleMap mapContainerStyle={mapContainerStyle} zoom={10} center={center} onClick={onMapClick}>
 					{markers.map(x => <Marker key={x.time.toISOString()} position={{ lat: x.lat, lng: x.lng }} onClick={() => setSelected(x)} />)}
 
-				{ selected ? (
-				<InfoWindow position={{lat: selected.lat, lng: selected.lng}} onCloseClick={() => setSelected(null)}>
-					{/* onCloseClick={() => setSelected(null) - After closing info window, can re-open another*/}
-					<div>
-						<h2>New Location</h2>
-						<button onClick={() => handleRemove(selected)}>Remove Marker</button>
-						<p>Time: {formatRelative(selected.time, new Date())}</p> {/* current relative time */}
-						<p>Latitude: {selected.lat}, Longitude: {selected.lng}</p>
-					</div>
-				</InfoWindow>) 
+					{ selected ? (
+						<InfoWindow position={{lat: selected.lat, lng: selected.lng}} onCloseClick={() => setSelected(null)}>
+						{/* onCloseClick={() => setSelected(null) - After closing info window, can re-open another*/}
+						<div>
+							<h2>New Location</h2>
+							<button onClick={() => handleRemove(selected)}>Remove Marker</button>
+							<p>Time: {formatRelative(selected.time, new Date())}</p> {/* current relative time */}
+							<p>Latitude: {selected.lat}, Longitude: {selected.lng}</p>
+						</div>
+						</InfoWindow>) 
 				: null }
 						</GoogleMap> 
-						{/* <img
-							src="/../views/img/2011-ireland-modern2.jpg"
-							alt="ireland-modern2"
-							class="polaroid-sizing-big"
-						/> */}
-						{/* <div class="container">
-							<p>Ireland 2011 - L.Chen</p>
-						</div> */}
-					{/* </div> */}
 				</div>
 			</div>
 		</div>

@@ -1,8 +1,19 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
-import { formatRelative } from 'date-fns'
+import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
+import { formatRelative } from 'date-fns';
 import axios from "axios";
+
+//FORM SPECIFIC
+import Form from 'react-bootstrap/Form';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+
+// .    .    .    .--. 
+// |\  /|   / \   |   )
+// | \/ |  /___\  |--' 
+// |    | /     \ |    
+// '    ''       `'    
 
 const mapContainerStyle = {
     width: "50vw",
@@ -10,11 +21,86 @@ const mapContainerStyle = {
 }
 
 const EditJob = (props) => {
-	const [jobDetails, setJobDetails] = useState({});
+
+// .---. .--. .--. .    .
+// |    :    :|   )|\  /|
+// |--- |    ||--' | \/ |
+// |    :    ;|  \ |    |
+// '     `--' '   `'    '
+	// States for JOB
+		const [jobDetails, setJobDetails] = useState({});
+	const [title, setTitle] = useState("");
+	const [company, setCompany] = useState("");
+	const [salary, setSalary] = useState();
+	const [jobType, setJobType] = useState(""); 
+		// DROPDOWN: Unknown, Remote, On-Site, Hybrid
+	const [location, setLocation] = useState("");
+	const [followUp, setFollowUp] = useState();
+	const [notes, setNotes] = useState("");
+	const [stage, setStage] = useState(""); // drop down
 	const { id } = useParams();
-	// Added the static value of id to test out the axios call - HS - 04212022
-	//const id = "626197aaba458d2aaba4e8f2";
 	const navigate = useNavigate();
+	const [errors, setErrors] = useState({});
+	
+
+	useEffect(() => {
+		axios
+			.get(`http://localhost:8000/api/jobs/${id}`)
+			.then((res) => {
+				console.log(res.data);
+				setJobDetails(res.data);
+				setFollowUp(res.data.followUp);
+				setTitle(res.data.title);
+				setCompany(res.data.company);
+				setSalary(res.data.salary);
+				setJobType(res.data.jobType);
+				setLocation(res.data.location);
+				setStage(res.data.stage);
+				setNotes(res.data.notes);
+			})
+			.catch((err) => {
+				console.log(err);
+				//If Error Display the Error Page
+				navigate("/career-detector/error");
+			});
+	}, [id, navigate]);
+
+
+	const onSubmitHandler = (e) => {
+        e.preventDefault();
+		axios.put(`http://localhost:8000/api/jobs/${id}`,
+		{
+			followUp,
+			title,
+            company,
+            salary,
+            jobType,
+            location,
+			stage,
+			notes
+		},
+        {withCredentials:true, credentials:'include'}
+		)
+            .then((res) => {
+                console.log(res);
+                console.log(res.data);
+                navigate('/career-detector/dashboard');
+            })
+            .catch((err) => {
+                console.log(err);
+				setErrors(err.response.data.errors)
+				navigate('/career-detector/error')
+            })
+    };
+
+	
+// .    .    .    .--. 
+// |\  /|   / \   |   )
+// | \/ |  /___\  |--' 
+// |    | /     \ |    
+// '    ''       `'    
+
+
 	const [lat, setLat] = useState(32.715736)
     const [lng, setLng] = useState(-117.161087)
     const [libraries] = useState(["places"]);
@@ -38,20 +124,6 @@ const EditJob = (props) => {
         lng: e.latLng.lng(),
         time: new Date()
     }]), []);
-
-	useEffect(() => {
-		axios
-			.get(`http://localhost:8000/api/jobs/${id}`)
-			.then((res) => {
-				console.log(res.data);
-				setJobDetails(res.data);
-			})
-			.catch((err) => {
-				console.log(err);
-				//If Error Display the Error Page
-				navigate("/career-detector/error");
-			});
-	}, [id, navigate]);
 
 	useEffect(() => {
 
@@ -87,48 +159,47 @@ const EditJob = (props) => {
 | \ |  /___\    \   /  |--:   /___\  |--' 
 |  \| /     \    \ /   |   ) /     \ |  \ 
 '   ''       `    '    '--' '       `'   ` */}
-			<div class="text-center " id="myHeader">
-				<div class="p-1 d-flex justify-content-between align-items-center">
-					<p class="navbar-brand">
-						{/* <strong>Add Job for ${userLogin.firstName}</strong> */}
+			<div className="text-center " id="myHeader">
+				<div className="p-1 d-flex justify-content-between align-items-center">
+					<p className="navbar-brand">
 						<strong>EDIT JOB DETAILS</strong>
 					</p>
-					<p class="navbar-brand">
+					<p className="navbar-brand">
 						<em>
-							I focused on being a photographer, but nothing ever developed.
+							Now I've gotten into astronomy, and my whole career is looking up.
 						</em>
 					</p>
 				</div>
 
-				<div class="mb-3 text-center">
-					<nav class="navbar navbar-expand-lg navbar-light bg-light">
-						<a class="navbar-brand" href="/career-detector/welcome">
+				<div className="mb-3 text-center">
+					<nav className="navbar navbar-expand-lg navbar-light bg-light">
+						<a className="navbar-brand" href="/career-detector/welcome">
 							CAREER DETECTOR
 						</a>
 						<button
-							class="navbar-toggler"
+							className="navbar-toggler"
 							type="button"
 							data-toggle="collapse"
 							data-target="#navbarNav"
 							aria-controls="navbarNav"
 							aria-expanded="false"
 							aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
+							<span className="navbar-toggler-icon"></span>
 						</button>
-						<div class="collapse navbar-collapse" id="navbarNav">
-							<ul class="navbar-nav">
-								<li class="m-1 nav-item">
-									<a class="nav-link" href="/career-detector/dashboard">
+						<div className="collapse navbar-collapse" id="navbarNav">
+							<ul className="navbar-nav">
+								<li className="m-1 nav-item">
+									<a className="nav-link" href="/career-detector/dashboard">
 										DASHBOARD
 									</a>
 								</li>
-								<li class="m-1 nav-item">
-									<a class="nav-link" href="/career-detector/add-job">
+								<li className="m-1 nav-item">
+									<a className="nav-link" href="/career-detector/add-job">
 										ADD JOB
 									</a>
 								</li>
-								<li class="m-1 nav-item">
-									<a class="nav-link" href="/">
+								<li className="m-1 nav-item">
+									<a className="nav-link" href="/">
 										SIGN OUT
 									</a>
 								</li>
@@ -137,85 +208,197 @@ const EditJob = (props) => {
 					</nav>
 				</div>
 			</div>
-			<div class=" d-flex ">
-				<div class=" d-flex content  blurred-box-form w-75">
-					{/* <!-- TABLE --> */}
 
-					<table class="table table-hover">
-						<tbody>
-							<tr>
-								<th>Next Follow Up:</th>
-								
-								<td>{jobDetails.followUp}</td>
-							</tr>
-							<tr>
-								<th>Job Title:</th>
-								
-								<td>{jobDetails.title}</td>
-							</tr>
-							<tr>
-								<th>Company:</th>
-
-								<td>{jobDetails.company}</td>
-							</tr>
-							<tr>
-								<th>Salary:</th>
-								<td>
-									<td>{jobDetails.salary}</td>
-								</td>
-							</tr>
-							<tr>
-								<th>Commute:</th>
-
-								<td>{jobDetails.jobType}</td>
-							</tr>
-							<tr>
-								<th>Location:</th>
-
-								<td>{jobDetails.location}</td>
-							</tr>
-							<tr>
-								<th>Stage of Technical Application:</th>
-
-								<td>{jobDetails.stage}</td>
-							</tr>
-							<tr>
-								<th>Additional Notes:</th>
-
-								<td>{jobDetails.notes}</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-
+					
+			{/* <!--
+		.---. .--. .--. .    .
+		|    :    :|   )|\  /|
+		|--- |    ||--' | \/ |
+		|    :    ;|  \ |    |
+		'     `--' '   `'    '
+		 --> */}
+			<div className="d-flex justify-content-center">
+				<Form
+					className="form-sizing-double blurred-box-form"
+					onSubmit={onSubmitHandler}
+				>		
+					<div className="d-flex justify-content-center">
+						<Form.Group className="form-sizing-double card-body">
+							<Form.Label> Next Follow Up: </Form.Label>
+							<Form.Control
+								type="Date"
+								placeholder={jobDetails.followUp}
+								className="text-center"
+								onChange={(e) => {
+												setFollowUp(e.target.placeholder)
+											}}
+							/>
+							{
+								errors.followUp ?
+									<p>{errors.followUp.message}</p> :
+									null
+							}
+						</Form.Group>
+						<Form.Group className="form-sizing-double card-body">
+							<Form.Label> Job Title </Form.Label>
+							<Form.Control
+								placeholder={jobDetails.title}
+								type="text"
+								className="text-center"
+								onChange={(e) => {
+												setTitle(e.target.placeholder)
+											}}
+							/>
+							{
+								errors.title ?
+									<p>{errors.title.message}</p> :
+									null
+							}
+						</Form.Group>
+					</div>
+					<div className="d-flex justify-content-center">
+						<Form.Group className="form-sizing-double card-body">
+							<Form.Label> Company </Form.Label>
+							<Form.Control
+								placeholder={jobDetails.company}
+								type="text"
+								className="text-center"
+								onChange={(e) => {
+												setCompany(e.target.placeholder)
+											}}
+							/>
+							{
+								errors.company ?
+									<p>{errors.company.message}</p> :
+									null
+							}
+						</Form.Group>
+						<Form.Group className="form-sizing-double card-body">
+							<Form.Label> Salary </Form.Label>
+							<Form.Control
+								placeholder={jobDetails.salary}
+								className="text-center"
+								type="number"
+								onChange={(e) => {
+												setSalary(e.target.placeholder)
+											}}
+							/>
+							{
+								errors.salary ?
+									<p>{errors.salary.message}</p> :
+									null
+							}
+						</Form.Group>
+					</div>
+					<div className="d-flex justify-content-center align-items-end">
+						<Form.Group className="form-sizing-double card-body">
+							<Form.Label> Commute </Form.Label>
+							<Form.Select
+								className="text-center"
+								defaultValue={jobDetails.jobType}
+								onChange={(e) => {
+												setJobType(e.target.value)
+											}}
+							>
+								<option>Unknown</option>
+								<option>Remote</option>
+								<option>On-Site</option>
+								<option>Hybrid</option>
+							</Form.Select>
+							{
+								errors.jobType ?
+									<p>{errors.jobType.message}</p> :
+									null
+							}
+						</Form.Group>
+						<Form.Group className="form-sizing-double card-body">
+							<Form.Label> Location </Form.Label>
+							<Form.Control
+								placeholder={jobDetails.location}
+								className="text-center"
+								type="text"
+								onChange={(e) => {
+												setLocation(e.target.value)
+											}}
+							/>
+							{
+								errors.location ?
+									<p>{errors.location.message}</p> :
+									null
+							}
+						</Form.Group>
+						<Form.Group className="form-sizing-double card-body">
+							<Form.Label> Stage of Technical Application </Form.Label>
+							<Form.Select
+								defaultValue={jobDetails.stage}
+								className="text-center"
+								onChange={(e) => {
+												setStage(e.target.value)
+											}}
+							>
+								<option>Applied</option>
+								<option>Pending Company Response</option>
+								<option>Technical Interview</option>
+								<option>Pending Company Offer</option>
+								<option>Pending My Decision</option>
+								<option>Other: See Additional Notes</option>
+							</Form.Select>
+							{
+								errors.stage ?
+									<p>{errors.stage.message}</p> :
+									null
+							}
+						</Form.Group>
+					</div>
+					<div className="d-flex justify-content-center">
+						<Form.Group className="form-sizing-double card-body">
+							<Form.Label> Additional Notes </Form.Label>
+							<Form.Control
+								placeholder={jobDetails.notes}
+								className="text-center"
+								as="textarea"
+								rows={3}
+								onChange={(e) => {
+									setNotes(e.target.value)
+								}}
+							/>
+							{
+								errors.notes ?
+									<p>{errors.notes.message}</p> :
+									null
+							}
+						</Form.Group>
+					</div>
+					<div className="d-flex justify-content-center">
+						<Form.Group className="form-sizing-double card-body">
+							<button className="btn-link-style-general btn btn-link-style-submit mt-3">Update</button>
+						</Form.Group>
+					</div>
+				</Form>
+					{/*       
+					.    .    .    .--. 
+					|\  /|   / \   |   )
+					| \/ |  /___\  |--' 
+					|    | /     \ |    
+					'    ''       `'    
+										*/}
 				{/* Liam this is the section for your maps....HS-04212022 */}
 
-				<div class=" w-20  d-flex justify-content-center align-items-center polaroid-side-display">
-					{/* <div class="content text-center "> */}
+				<div className=" w-20  d-flex justify-content-center align-items-center polaroid-side-display">
 					<GoogleMap mapContainerStyle={mapContainerStyle} zoom={10} center={center} onClick={onMapClick}>
 					{markers.map(x => <Marker key={x.time.toISOString()} position={{ lat: x.lat, lng: x.lng }} onClick={() => setSelected(x)} />)}
 
-				{ selected ? (
-				<InfoWindow position={{lat: selected.lat, lng: selected.lng}} onCloseClick={() => setSelected(null)}>
-					{/* onCloseClick={() => setSelected(null) - After closing info window, can re-open another*/}
-					<div>
-						<h2>New Location</h2>
-						<button onClick={() => handleRemove(selected)}>Remove Marker</button>
-						<p>Time: {formatRelative(selected.time, new Date())}</p> {/* current relative time */}
-						<p>Latitude: {selected.lat}, Longitude: {selected.lng}</p>
-					</div>
-				</InfoWindow>) 
-				: null }
-						</GoogleMap> 
-						{/* <img
-							src="/../views/img/2011-ireland-modern2.jpg"
-							alt="ireland-modern2"
-							class="polaroid-sizing-big"
-						/> */}
-						{/* <div class="container">
-							<p>Ireland 2011 - L.Chen</p>
-						</div> */}
-					{/* </div> */}
+					{ selected ? (
+						<InfoWindow position={{lat: selected.lat, lng: selected.lng}} onCloseClick={() => setSelected(null)}>
+							{/* {onCloseClick={() => setSelected(null) - After closing info window, can re-open another*/}
+						<div>
+							<h2>New Location</h2>
+							<button onClick={() => handleRemove(selected)}>Remove Marker</button>
+							<p>Time: {formatRelative(selected.time, new Date())}</p> {/* current relative time */}
+							<p>Latitude: {selected.lat}, Longitude: {selected.lng}</p>
+						</div>
+						</InfoWindow>) : null }
+					</GoogleMap> 
 				</div>
 			</div>
 		</div>

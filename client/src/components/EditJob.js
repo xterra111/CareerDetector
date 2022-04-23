@@ -386,7 +386,7 @@ const EditJob = (props) => {
 										*/}
 				{/* Liam this is the section for your maps....HS-04212022 */}
 
-				<div className=" w-20  d-flex justify-content-center align-items-center polaroid-side-display">
+				<div className=" w-20  d-flex justify-content-center align-items-center polaroid-side-display blurred-box-form">
 					<GoogleMap mapContainerStyle={mapContainerStyle} zoom={10} center={center} onClick={onMapClick}>
 					{markers.map(x => <Marker key={x.time.toISOString()} position={{ lat: x.lat, lng: x.lng }} onClick={() => setSelected(x)} />)}
 

@@ -124,7 +124,7 @@ const AddJob = () => {
 					{/* <input type="hidden" value="${userLogin.id}" path="user"/> */}
 					<div className="d-flex justify-content-center">
 						<Form.Group className="form-sizing-double card-body">
-							<Form.Label> Next Follow Up: </Form.Label>
+							<Form.Label> Next Follow Up:(Optional)</Form.Label>
 							<Form.Control
 								value={followUp}
 								type="datetime-local"

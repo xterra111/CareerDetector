@@ -225,7 +225,7 @@ const EditJob = (props) => {
 				>		
 					<div className="d-flex justify-content-center">
 						<Form.Group className="form-sizing-double card-body">
-							<Form.Label> Next Follow Up: </Form.Label>
+							<Form.Label> Next Follow Up: (Optional) </Form.Label>
 							<Form.Control
 								type="datetime-local"
 								value={followUp}

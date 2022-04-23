@@ -89,7 +89,8 @@ const EditJob = (props) => {
             .catch((err) => {
                 console.log(err);
 				setErrors(err.response.data.errors)
-				navigate('/career-detector/error')
+				//  The reason for validation error not showing up is the re-routing to error. Please do NOT comment this out ever again.
+				// navigate('/career-detector/error')
             })
     };
 

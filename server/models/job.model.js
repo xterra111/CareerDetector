@@ -20,7 +20,7 @@ const JobSchema = new mongoose.Schema(
 		salary: {
 			type: Number,
 			required: [true, "Salary amount is required"],
-			min: 0,
+			min: [1,"Minimum amount for the job is $1"]
 		},
 		// Remote,OnSite, Hybrid
 		jobType: {
@@ -35,12 +35,7 @@ const JobSchema = new mongoose.Schema(
 		// nextFollowUp (Calender), date
 		followUp: {
 			type: Date,
-			validate: function(input) {
-				/* return true only if the input is a valid date, AND is 
-				greater than or equal to the current date/time */
-				return typeof new Date(input) === 'date' && new Date(input) >= new Date();
-			},
-			message: input => `${input} must be greater than or equal to the current date!`
+			min:[ Date.now(), "Please choose future date"],
 		},
 		// additionalNotes, text
 		notes: {

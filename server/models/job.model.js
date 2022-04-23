@@ -35,6 +35,12 @@ const JobSchema = new mongoose.Schema(
 		// nextFollowUp (Calender), date
 		followUp: {
 			type: Date,
+			validate: function(input) {
+				/* return true only if the input is a valid date, AND is 
+				greater than or equal to the current date/time */
+				return typeof new Date(input) === 'date' && new Date(input) >= new Date();
+			},
+			message: input => `${input} must be greater than or equal to the current date!`
 		},
 		// additionalNotes, text
 		notes: {

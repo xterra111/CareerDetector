@@ -58,7 +58,7 @@ const AddJob = () => {
 |  \| /     \    \ /   |   ) /     \ |  \ 
 '   ''       `    '    '--' '       `'   ` */}
 			<div class="mb-5 text-center">
-				<div class="p-1 d-flex justify-content-between align-items-center">
+				<div class="text-mont p-1 d-flex justify-content-between align-items-center">
 					<p class="navbar-brand">
 						<strong>ADD JOB</strong>
 					</p>
@@ -115,7 +115,7 @@ const AddJob = () => {
 		|    :    ;|  \ |    |
 		'     `--' '   `'    '
 		 --> */}
-			<div className="d-flex justify-content-center">
+			<div className="text-mont d-flex justify-content-center">
 				<Form
 					className="mt-5 form-sizing-double blurred-box-form"
 					onSubmit={onSubmitHandler}

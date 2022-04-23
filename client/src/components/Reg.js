@@ -61,11 +61,11 @@ const Register = (props)=>{
 
 
     return (
-        <div className="display">
+        <div className="blurred-box-form m-5 text-center">
             <h1>Register</h1>
             {confirmReg ? <h4 style={{ color: "red" }}>{confirmReg}</h4> 
             : null}
-            <div className="form">
+            <div className="form mt-3">
                 <form className="form-control" onSubmit={register}>
                     <div>
                         <label className="form-label">First Name</label>

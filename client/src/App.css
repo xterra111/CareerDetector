@@ -382,7 +382,7 @@ div.polaroid {
 
 div.polaroid-side-display {
   width: 50%;
-  background-color: white;
+  background-color: inherit;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-right: 30px;
   margin-left: 30px;

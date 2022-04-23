@@ -28,14 +28,14 @@ const EditJob = (props) => {
 // |    :    ;|  \ |    |
 // '     `--' '   `'    '
 	// States for JOB
-		const [jobDetails, setJobDetails] = useState({});
+	const [jobDetails, setJobDetails] = useState({});
 	const [title, setTitle] = useState("");
 	const [company, setCompany] = useState("");
 	const [salary, setSalary] = useState();
 	const [jobType, setJobType] = useState(""); 
 		// DROPDOWN: Unknown, Remote, On-Site, Hybrid
 	const [location, setLocation] = useState("");
-	const [followUp, setFollowUp] = useState();
+	const [followUp, setFollowUp] = useState(new Date());
 	const [notes, setNotes] = useState("");
 	const [stage, setStage] = useState(""); // drop down
 	const { id } = useParams();
@@ -160,7 +160,7 @@ const EditJob = (props) => {
 |  \| /     \    \ /   |   ) /     \ |  \ 
 '   ''       `    '    '--' '       `'   ` */}
 			<div className="text-center " id="myHeader">
-				<div className="p-1 d-flex justify-content-between align-items-center">
+				<div className="text-mont p-1 d-flex justify-content-between align-items-center">
 					<p className="navbar-brand">
 						<strong>EDIT JOB DETAILS</strong>
 					</p>
@@ -217,7 +217,7 @@ const EditJob = (props) => {
 		|    :    ;|  \ |    |
 		'     `--' '   `'    '
 		 --> */}
-			<div className="d-flex justify-content-center">
+			<div className="text-mont d-flex justify-content-center">
 				<Form
 					className="form-sizing-double blurred-box-form"
 					onSubmit={onSubmitHandler}
@@ -226,11 +226,12 @@ const EditJob = (props) => {
 						<Form.Group className="form-sizing-double card-body">
 							<Form.Label> Next Follow Up: </Form.Label>
 							<Form.Control
-								type="Date"
-								placeholder={jobDetails.followUp}
+								type="datetime-local"
+								value={followUp}
 								className="text-center"
+								placeholder={followUp}
 								onChange={(e) => {
-												setFollowUp(e.target.placeholder)
+												setFollowUp(e.target.value)
 											}}
 							/>
 							{
@@ -246,7 +247,7 @@ const EditJob = (props) => {
 								type="text"
 								className="text-center"
 								onChange={(e) => {
-												setTitle(e.target.placeholder)
+												setTitle(e.target.value)
 											}}
 							/>
 							{
@@ -264,7 +265,7 @@ const EditJob = (props) => {
 								type="text"
 								className="text-center"
 								onChange={(e) => {
-												setCompany(e.target.placeholder)
+												setCompany(e.target.value)
 											}}
 							/>
 							{
@@ -280,7 +281,7 @@ const EditJob = (props) => {
 								className="text-center"
 								type="number"
 								onChange={(e) => {
-												setSalary(e.target.placeholder)
+												setSalary(e.target.value)
 											}}
 							/>
 							{

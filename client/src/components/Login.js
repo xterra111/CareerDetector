@@ -35,11 +35,11 @@ const Login = (props) => {
     };
 
     return (
-        <div className="display">
+        <div className="blurred-box-form mt-5 text-center m-5">
             <h1>Login</h1>
             <p className="error-text">{errorMessage ? errorMessage : ""}</p>
             <div className="form">
-            <form  className= "form-control" onSubmit={login}>
+            <form  className= "form-control blurred-box" onSubmit={login}>
                 <div>
                     <label className="form-label">Email</label>
                     <br/>

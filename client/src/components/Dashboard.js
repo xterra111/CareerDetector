@@ -6,6 +6,21 @@ import DeleteButton from "./DeleteButton";
 const Dashboard = (props) => {
 	const [listAllJobs, setListAllJobs] = useState([]);
 
+	// need to convert string to date
+	const options = {
+		weekday: "long",
+		year: "numeric",
+		month: "short",
+		day: "numeric",
+		hour: "numeric",
+		minute: "numeric",
+	};
+	const displayDate = (d) => {
+		let date = new Date(d);
+		return date.toLocaleString("en-us", options);
+	};
+
+
 	const removeFromDom = (listAllid) => {
 		setListAllJobs(listAllJobs.filter((listAll) => listAll._id !== listAllid));
 	};
@@ -25,11 +40,10 @@ const Dashboard = (props) => {
 	return (
 		<div>
 			<div class="text-center " id="myHeader">
-				<div class="p-1 d-flex justify-content-between align-items-center">
+				<div class="text-mont p-1 d-flex justify-content-between align-items-center">
 					<p class="navbar-brand">
 						<strong>
 							DASHBOARD
-							{/* Dashboard for ${userLogin.firstName} ${userLogin.lastName} */}
 						</strong>
 					</p>
 					<p class="navbar-brand">
@@ -85,7 +99,7 @@ const Dashboard = (props) => {
 '--' '       ` `-' '   ''--'  `--' '       `'   `'--'  */}
 			
 
-			<div class="text-center m-5">
+			<div class="text-center m-5 text-mont">
 				<h1 class="header-career-detector">
 					<strong>Dashboard</strong>
 				</h1>
@@ -118,9 +132,7 @@ const Dashboard = (props) => {
 									</td>
 									
 									<td class="align-middle text-center">
-										
-										{listAll.followUp.substring(0,10)}
-										
+										{displayDate(listAll.followUp)}
 									</td>
 									
 									<td class="box-link-style-general align-middle text-center">

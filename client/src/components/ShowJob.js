@@ -21,6 +21,31 @@ const ShowJob = (props) => {
 	const [markers, setMarkers] = useState([])
 	const [selected, setSelected] = useState(null);
 
+
+//  .-. .---..--. --.--.   . .--.     .---. .--.      .--.     .    .---..---.
+// (   )  |  |   )  |  |\  |:           |  :    :     |   :   / \     |  |    
+//  `-.   |  |--'   |  | \ || --.       |  |    |     |   |  /___\    |  |--- 
+// (   )  |  |  \   |  |  \|:   |       |  :    ;     |   ; /     \   |  |    
+//  `-'   '  '   `--'--'   ' `--'       '   `--'      '--' '       `  '  '---'
+	const options = {
+		weekday: "long",
+		year: "numeric",
+		month: "short",
+		day: "numeric",
+		hour: "numeric",
+		minute: "numeric",
+	};
+	const displayDate = (d) => {
+		let date = new Date(d);
+		return date.toLocaleString("en-us", options);
+	};
+
+// .    .    .    .--. 
+// |\  /|   / \   |   )
+// | \/ |  /___\  |--' 
+// |    | /     \ |    
+// '    ''       `'    
+
 	const center = {
         lat: parseFloat(lat),
         lng: parseFloat(lng)
@@ -137,17 +162,22 @@ const ShowJob = (props) => {
 					</nav>
 				</div>
 			</div>
+				{/* 
+				-.-. .   . .--. .  .   .  .
+				(   )|   |:    : \  \ /  / 
+				-`-. |---||    |  \  \  /  
+				(   )|   |:    ;   \/ \/   
+				-`-' '   ' `--'     ' '    
+							*/}
 			<div class=" d-flex ">
 				<div class=" d-flex content  blurred-box-form w-75">
-					{/* <!-- TABLE --> */}
-
 					<table class="table table-hover">
 						<tbody>
 							<tr>
 								<th>Next Follow Up:</th>
 								
 								<td>
-									{jobDetails.followUp.substring(0,10)}
+									{displayDate(jobDetails.followUp)}
 								</td>
 							</tr>
 							<tr>

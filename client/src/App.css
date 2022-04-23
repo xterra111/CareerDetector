@@ -53,7 +53,7 @@
 
 	
 	.btn-link-style-general {
-    color: #304CC0;
+    color: #c1ccf7;
     transition: all 0.5s;
     position: relative; 
 	}
@@ -108,7 +108,7 @@ _/     \ :      |    |  :    ;|  \|     |      |  |  \||  \
 */
 
     
-.box-link-style-general { background-color: #A1A6C2;}
+.box-link-style-action { background-color: #dde0ec;}
 
 	
 	.btn-link-style-action {
@@ -226,7 +226,7 @@ _`-'  `-' '--' '    '--'--  '       '---'--'--'   ''   `
                                                         
 */
 .box-link-style-submit { 
-	background-color: #2D4F85; 
+	background-color: #a9c3ee; 
 	border: 1px solid rgba(45, 79, 133,0.2);
 	}
             
@@ -386,7 +386,7 @@ img{
   margin-right: 25%;
   text-align: center;
   border-radius: 10px;
-  opacity: 80%;
+  opacity: 79%;
 }
 
 div.polaroid-side-display {

@@ -1,12 +1,12 @@
 import React from "react";
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import image1 from '../img/image1.jpg';
-import image2 from '../img/image2.jpg';
-import image3 from '../img/image3.jpg';
-import image4 from '../img/image4.jpg';
-import image5 from '../img/image5.jpg';
-import image6 from '../img/image6.jpg';
+import office1 from '../img/office1.jpg';
+import office2 from '../img/office2.jpg';
+import office3 from '../img/office3.jpg';
+import office4 from '../img/office4.jpg';
+import office5 from '../img/office5.jpg';
+import office6 from '../img/office6.jpg';
 
 const Welcome = () => {
     return (
@@ -74,42 +74,70 @@ const Welcome = () => {
     :     /     \ |  \ :    ;:   ;(   )|    |    
     -`--''       `'   ` `--'  `-'  `-' '---''---'
     the carousel slide class allows the movement for slides */}
-
+            <h3 className="mt-3 mb-3 top-container text-mont text-center">
+                <em>
+                    "If you fell down yesterday, stand up today." --H.G. Wells
+                </em>
+                <h5>Get started by
+                    <a className="btn-link-style-general btn btn-link-style-submit" href="/career-detector/add-job"><strong>adding a job</strong></a>
+                !</h5>
+            </h3>
             <Carousel>
                 <Carousel.Item className="text-center" interval={1900}>
                     <img
-                    className="d-block"
-                    src={image1}
+                        className="d-block"
+                        src={office1}
+                        alt="work1"
                     />
+                    <Carousel.Caption>
+                        <p></p>
+                    </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item className="text-center" interval={1900}>
                     <img
-                    className="d-block"
-                    src={image2}
+                        className="d-block"
+                        src={office2}
+                        alt="work2"
                     />
+                    <Carousel.Caption>
+                        <p></p>
+                    </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item className="text-center" interval={1900}>
                     <img
-                    className="d-block"
-                    src={image3}
+                        className="d-block"
+                        src={office3}
+                        alt="work3"
                     />
+                    <Carousel.Caption>
+                        <p></p>
+                    </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item className="text-center" interval={1900}>
                     <img
-                    className="d-block"
-                    src={image4}
+                        className="d-block"
+                        src={office4}
+                        alt="work4"
                     />
+                    <Carousel.Caption>
+                        <p></p>
+                    </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item className="text-center" interval={1900}>
                     <img
-                    className="d-block"
-                    src={image5}
+                        className="d-block"
+                        src={office5}
+                        alt="work5"
                     />
+                    <Carousel.Caption>
+                        <p></p>
+                    </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item className="text-center" interval={1900}>
                     <img
-                    className="d-block"
-                    src={image6}
+                        className="d-block"
+                        src={office6}
+                        alt="work6"
                     />
                 </Carousel.Item>
             </Carousel>
